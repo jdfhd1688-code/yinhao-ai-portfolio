@@ -5,6 +5,7 @@ dist/
 .preview/
 .tools/
 *.log
+*.tsbuildinfo
 
 # Legacy Vite prototype retained locally for reference
 src/

@@ -1,0 +1,16 @@
+node_modules/
+.next/
+out/
+dist/
+.preview/
+.tools/
+*.log
+
+# Legacy Vite prototype retained locally for reference
+src/
+scripts/
+public/images/
+public/videos/
+public/hero.webm
+index.html
+vite.config.js

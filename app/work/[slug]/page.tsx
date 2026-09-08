@@ -4,6 +4,7 @@ import Link from "next/link";
 import { ArrowLeft, ArrowRight, ExternalLink } from "lucide-react";
 import { notFound } from "next/navigation";
 import { Navigation } from "@/components/navigation";
+import { ProjectEvidence } from "@/components/project-evidence";
 import { getProject, projects } from "@/data/projects";
 
 export function generateStaticParams() { return projects.map(({ id }) => ({ slug: id })); }
@@ -34,6 +35,7 @@ export default async function ProjectPage({ params }: { params: Promise<{ slug: 
       <section className="case__chapters">
         {[["01 / Problem", project.problem], ["02 / Insight", project.insight], ["03 / Solution", project.solution]].map(([label, copy]) => <article key={label}><span>{label}</span><p>{copy}</p></article>)}
       </section>
+      <ProjectEvidence projectId={project.id} />
       <section className="case__workflow"><span>04 / WORKFLOW</span><h2>A system, one step at a time.</h2><ol>{project.workflow.map((step, i) => <li key={step}><b>{String(i + 1).padStart(2, "0")}</b><span>{step}</span></li>)}</ol></section>
       <section className="case__outcomes"><div><span>05 / PROCESS</span>{project.process.map((item) => <p key={item}>{item}</p>)}</div><div><span>06 / RESULT</span>{project.result.map((item) => <p key={item}>{item}</p>)}</div></section>
       <section className="case__reflection"><span>07 / WHAT I LEARNED</span><blockquote>{project.reflection}</blockquote>{project.demo && <a className="arrow-link" href={project.demo} target="_blank" rel="noreferrer">Open live demo <ExternalLink size={17} /></a>}</section>

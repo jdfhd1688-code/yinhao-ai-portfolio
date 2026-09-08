@@ -4,8 +4,9 @@ import "./globals.css";
 export const metadata: Metadata = {
   metadataBase: new URL("https://yinhao-ai-portfolio.jdfhd1688.chatgpt.site"),
   title: { default: "YINHAO — AI Products, Agents & Stories", template: "%s — YINHAO" },
-  description: "AI portfolio exploring products, agents and storytelling.",
-  openGraph: { title: "YINHAO — AI Products, Agents & Stories", description: "AI portfolio exploring products, agents and storytelling.", type: "website" },
+  description: "A portfolio by YINHAO exploring AI products, agents, workflows and storytelling.",
+  alternates: { canonical: "/" },
+  openGraph: { title: "YINHAO — AI Products, Agents & Stories", description: "A portfolio by YINHAO exploring AI products, agents, workflows and storytelling.", type: "website", url: "/" },
   robots: { index: true, follow: true },
 };
 

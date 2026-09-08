@@ -4,7 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { ArrowDown, ArrowRight, Mail } from "lucide-react";
 import { motion, useReducedMotion, useScroll, useTransform } from "framer-motion";
-import { useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import { projects } from "@/data/projects";
 
 const reveal = {
@@ -19,15 +19,57 @@ function FadeIn({ children, className = "" }: { children: React.ReactNode; class
 
 export function Hero() {
   const ref = useRef<HTMLElement>(null);
+  const videoRef = useRef<HTMLVideoElement>(null);
+  const [soundGate, setSoundGate] = useState(true);
+  const [soundOn, setSoundOn] = useState(false);
   const reduced = useReducedMotion();
   const { scrollYProgress } = useScroll({ target: ref, offset: ["start start", "end start"] });
   const scale = useTransform(scrollYProgress, [0, 1], [1, reduced ? 1 : 1.08]);
   const opacity = useTransform(scrollYProgress, [0, 0.72], [1, 0]);
   const y = useTransform(scrollYProgress, [0, 1], [0, reduced ? 0 : -70]);
 
+  useEffect(() => {
+    const video = videoRef.current;
+    if (!video) return;
+    video.muted = false;
+    video.volume = 0.82;
+    video.play().then(() => {
+      setSoundOn(true);
+      setSoundGate(false);
+    }).catch(() => {
+      video.muted = true;
+      void video.play();
+    });
+  }, []);
+
+  const enterWithSound = async () => {
+    const video = videoRef.current;
+    if (!video) return;
+    setSoundGate(false);
+    setSoundOn(true);
+    video.muted = false;
+    video.volume = 0.82;
+    try {
+      await video.play();
+    } catch {
+      video.muted = true;
+      setSoundOn(false);
+      await video.play();
+    }
+  };
+
+  const toggleSound = () => {
+    const video = videoRef.current;
+    if (!video) return;
+    const next = !soundOn;
+    video.muted = !next;
+    setSoundOn(next);
+    if (video.paused) void video.play();
+  };
+
   return (
     <section className="hero" ref={ref} aria-label="Introduction">
-      <motion.video className="hero__video" style={{ scale }} autoPlay muted loop playsInline preload="auto" poster="/media/hero/hero-road.png">
+      <motion.video ref={videoRef} className="hero__video" style={{ scale }} autoPlay loop playsInline preload="auto" poster="/media/hero/hero-road.png">
         <source src="/media/hero/hero-road.mp4" type="video/mp4" />
       </motion.video>
       <div className="hero__shade" />
@@ -40,6 +82,8 @@ export function Hero() {
         </div>
       </motion.div>
       <a className="scroll-cue" href="#work"><span>SCROLL TO CONTINUE</span><ArrowDown size={16} /></a>
+      {soundGate && <button className="sound-gate" type="button" onClick={enterWithSound}><span>ENTER WITH SOUND</span><b>↗</b></button>}
+      {!soundGate && <button className="sound-toggle" type="button" onClick={toggleSound} aria-label={soundOn ? "Mute video" : "Unmute video"}>SOUND {soundOn ? "ON" : "OFF"}</button>}
     </section>
   );
 }

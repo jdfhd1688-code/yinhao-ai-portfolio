@@ -1,4 +1,4 @@
-# Yihong — AI Products, Agents & Stories
+# YINHAO — AI Products, Agents & Stories
 
 A cinematic, editorial portfolio built with Next.js, React, TypeScript, Tailwind CSS, Framer Motion and GSAP.
 
@@ -28,7 +28,7 @@ All production media lives in `public/media/`.
 | `public/media/hero/hero-road.mp4` | Homepage background video | Original supplied video |
 | `public/media/hero/hero-road.png` | Hero video poster | Original supplied night-road image |
 | `public/media/hero/walking-road.png` | Closing Contact background | Reuses the supplied night-road image |
-| `public/media/about/yihong-avatar.png` | First front-facing appearance in About | Original supplied portrait |
+| `public/media/about/yinhao-avatar.png` | First front-facing appearance in About | Original supplied portrait |
 | `public/media/youwozai/cover-generated.png` | 有我在 project cover | Clean generated interim art; replace after the real project link is supplied |
 | `public/media/legal-agent/cover-generated.png` | Legal Agent project cover | Clean generated interim art; replace after the real project link is supplied |
 | `public/media/storytelling/cover-generated.png` | AI Storytelling project cover | Clean generated interim art; replace after the real project link is supplied |

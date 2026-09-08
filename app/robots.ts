@@ -1,3 +1,3 @@
 import type { MetadataRoute } from "next";
 export const dynamic = "force-static";
-export default function robots(): MetadataRoute.Robots { return { rules: { userAgent: "*", allow: "/" }, sitemap: "https://yihong-ai-portfolio.jdfhd1688.chatgpt.site/sitemap.xml" }; }
+export default function robots(): MetadataRoute.Robots { return { rules: { userAgent: "*", allow: "/" }, sitemap: "https://yinhao-ai-portfolio.jdfhd1688.chatgpt.site/sitemap.xml" }; }

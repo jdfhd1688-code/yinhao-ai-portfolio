@@ -23,7 +23,7 @@ export function Navigation() {
 
   return (
     <header className={`nav ${scrolled ? "nav--scrolled" : ""}`}>
-      <Link href="/" className="nav__brand" aria-label="Yihong home">YIHONG<span>.</span></Link>
+      <Link href="/" className="nav__brand" aria-label="YINHAO home">YINHAO<span>.</span></Link>
       <nav className={`nav__links ${open ? "nav__links--open" : ""}`} aria-label="Primary navigation">
         {links.map(([label, href]) => (
           <Link key={href} href={`/${href}`} onClick={() => setOpen(false)}>{label}</Link>

@@ -2,10 +2,10 @@ import type { Metadata } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://yihong-ai-portfolio.jdfhd1688.chatgpt.site"),
-  title: { default: "Yihong — AI Products, Agents & Stories", template: "%s — Yihong" },
+  metadataBase: new URL("https://yinhao-ai-portfolio.jdfhd1688.chatgpt.site"),
+  title: { default: "YINHAO — AI Products, Agents & Stories", template: "%s — YINHAO" },
   description: "AI portfolio exploring products, agents and storytelling.",
-  openGraph: { title: "Yihong — AI Products, Agents & Stories", description: "AI portfolio exploring products, agents and storytelling.", type: "website" },
+  openGraph: { title: "YINHAO — AI Products, Agents & Stories", description: "AI portfolio exploring products, agents and storytelling.", type: "website" },
   robots: { index: true, follow: true },
 };
 

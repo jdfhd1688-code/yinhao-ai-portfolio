@@ -78,7 +78,7 @@ export function Hero() {
         <h1>A long road.<br /><em>A sunrise somewhere ahead.</em></h1>
         <div className="hero__identity">
           <p>I&apos;m still on the way.</p>
-          <div><strong>Yihong</strong><span>AI Products · AI Agents · AI Storytelling</span></div>
+          <div><strong>YINHAO</strong><span>AI Products · AI Agents · AI Storytelling</span></div>
         </div>
       </motion.div>
       <a className="scroll-cue" href="#work"><span>SCROLL TO CONTINUE</span><ArrowDown size={16} /></a>
@@ -138,10 +138,10 @@ export function Thinking() {
 export function About() {
   return (
     <section id="about" className="about">
-      <div className="about__portrait"><Image src="/media/about/yihong-avatar.png" alt="Portrait of Yihong" fill sizes="(max-width: 800px) 100vw, 48vw" /></div>
+      <div className="about__portrait"><Image src="/media/about/yinhao-avatar.png" alt="Portrait of YINHAO" fill sizes="(max-width: 800px) 100vw, 48vw" /></div>
       <div className="about__copy">
         <span>03 / ABOUT</span>
-        <h2>Hi.<br />I&apos;m Yihong.</h2>
+        <h2>Hi.<br />I&apos;m YINHAO.</h2>
         <p className="about__lead">I build AI products, agents and stories that make technology feel more human.</p>
         <p>I&apos;m exploring how AI can understand people, solve real-world problems, and create new forms of storytelling.</p>
         <p className="about__closing">I&apos;m still learning.<br />Still building.<br /><em>Still on the way.</em></p>
@@ -160,8 +160,8 @@ export function Contact() {
         <span>04 / CONTACT</span>
         <h2>I haven&apos;t reached<br />the summit yet.</h2>
         <p><em>I&apos;m still on the way.</em><br />Maybe our paths cross here.</p>
-        <a className="contact__cta" href="mailto:hello@yihong.studio">Let&apos;s build something together <Mail size={18} /></a>
-        <div className="contact__links"><a href="mailto:hello@yihong.studio">Email</a><a href="https://github.com/" target="_blank" rel="noreferrer">GitHub</a><a href="#">Resume</a><a href="#">LinkedIn</a></div>
+        <a className="contact__cta" href="mailto:hello@yinhao.studio">Let&apos;s build something together <Mail size={18} /></a>
+        <div className="contact__links"><a href="mailto:hello@yinhao.studio">Email</a><a href="https://github.com/" target="_blank" rel="noreferrer">GitHub</a><a href="#">Resume</a><a href="#">LinkedIn</a></div>
       </div>
     </section>
   );

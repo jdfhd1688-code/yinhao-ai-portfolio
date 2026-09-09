@@ -5,8 +5,7 @@ import { MotionValue, motion, useReducedMotion, useTransform } from "framer-moti
 import { ArrowUpRight } from "lucide-react";
 import { useRef } from "react";
 import { useSectionProgress } from "@/hooks/use-section-progress";
-
-const beats = ["I haven't reached\nthe summit yet.", "I'm still\non the way.", "Maybe our paths\ncross here."];
+import { useLanguage } from "@/messages/locale";
 
 function FinaleBeat({ beat, index, progress, reduced }: { beat: string; index: number; progress: MotionValue<number>; reduced: boolean | null }) {
   const start = index * 0.21;
@@ -16,6 +15,7 @@ function FinaleBeat({ beat, index, progress, reduced }: { beat: string; index: n
 }
 
 export function ContactFinale() {
+  const { t, locale } = useLanguage();
   const ref = useRef<HTMLElement>(null);
   const reduced = useReducedMotion();
   const scrollYProgress = useSectionProgress(ref);
@@ -24,13 +24,13 @@ export function ContactFinale() {
   return (
     <section id="contact" ref={ref} className="finale" aria-labelledby="contact-title">
       <div className="finale__sticky">
-        <div className="finale__image"><Image src="/media/hero/walking-road.png" alt="A solitary figure continuing along a road at night" fill sizes="100vw" /></div>
-        <div className="finale__shade" /><span className="finale__label">04 / CONTACT · THE ROAD CONTINUES</span>
-        {beats.map((beat, index) => <FinaleBeat key={beat} beat={beat} index={index} progress={scrollYProgress} reduced={reduced} />)}
+        <div className="finale__image"><Image src="/media/hero/walking-road.png" alt={locale === "zh" ? "夜路上继续前行的人" : "A solitary figure continuing along a road at night"} fill sizes="100vw" /></div>
+        <div className="finale__shade" /><span className="finale__label">{t.contactLabel}</span>
+        {t.contactBeats.map((beat, index) => <FinaleBeat key={beat} beat={beat} index={index} progress={scrollYProgress} reduced={reduced} />)}
         <motion.div className="finale__cta" style={{ opacity: ctaOpacity, y: ctaY }}>
-          <p>LET&apos;S TALK <ArrowUpRight /></p>
+          <p>{t.talk} <ArrowUpRight /></p>
           <div className="finale__pending" aria-label="Contact links pending"><span>Email</span><span>GitHub</span><span>Resume</span><span>LinkedIn</span></div>
-          <small>Contact links will be activated when verified addresses are supplied.</small>
+          <small>{t.contactPending}</small>
         </motion.div>
       </div>
     </section>

@@ -1,9 +1,10 @@
 "use client";
 
-import { motion, useReducedMotion, useScroll, useTransform } from "framer-motion";
+import { type MotionValue, motion, useReducedMotion, useTransform } from "framer-motion";
 import { Volume2, VolumeX } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
 import { useViewportVideo } from "@/hooks/use-viewport-video";
+import { useSectionProgress } from "@/hooks/use-section-progress";
 
 const scenes: { at: number[]; copy: React.ReactNode }[] = [
   { at: [0, 0.001, 0.16, 0.24], copy: <h1>A long road.</h1> },
@@ -13,10 +14,10 @@ const scenes: { at: number[]; copy: React.ReactNode }[] = [
   { at: [0.84, 0.91, 0.98, 1], copy: <h2>Along the way,<br /><em>I made a few things.</em></h2> },
 ];
 
-function Scene({ progress, at, children }: { progress: ReturnType<typeof useScroll>["scrollYProgress"]; at: number[]; children: React.ReactNode }) {
+function Scene({ progress, at, children, opening = false }: { progress: MotionValue<number>; at: number[]; children: React.ReactNode; opening?: boolean }) {
   const opacity = useTransform(progress, at, at[0] === 0 ? [1, 1, 1, 0] : [0, 1, 1, 0]);
-  const y = useTransform(progress, [at[0], at[1], at[2], at[3]], [32, 0, 0, -28]);
-  return <motion.div className="narrative__scene" style={{ opacity, y }}>{children}</motion.div>;
+  const y = useTransform(progress, [at[0], at[1], at[2], at[3]], opening ? [0, 0, 0, -28] : [32, 0, 0, -28]);
+  return <motion.div className={`narrative__scene${opening ? " narrative__scene--opening" : ""}`} style={{ opacity, y }}>{children}</motion.div>;
 }
 
 export function ScrollNarrative() {
@@ -24,17 +25,22 @@ export function ScrollNarrative() {
   const videoRef = useRef<HTMLVideoElement>(null);
   const [soundOn, setSoundOn] = useState(false);
   const reduced = useReducedMotion();
-  const { scrollYProgress } = useScroll({ target: ref, offset: ["start start", "end end"] });
+  const scrollYProgress = useSectionProgress(ref);
   const scale = useTransform(scrollYProgress, [0, 1], [1.09, reduced ? 1.09 : 1]);
   const brightness = useTransform(scrollYProgress, [0, 0.65, 1], [0.42, 0.68, 0.5]);
-  useViewportVideo(videoRef);
+  useViewportVideo(videoRef, !reduced);
 
   useEffect(() => {
     const video = videoRef.current;
     if (!video) return;
+    if (reduced) {
+      video.pause();
+      video.currentTime = 0;
+      return;
+    }
     video.muted = true;
     void video.play().catch(() => undefined);
-  }, []);
+  }, [reduced]);
 
   const toggleSound = async () => {
     const video = videoRef.current;
@@ -52,7 +58,7 @@ export function ScrollNarrative() {
         </motion.video>
         <div className="narrative__shade" />
         <p className="narrative__chapter">A PERSONAL JOURNEY · 2026</p>
-        {scenes.map((scene, index) => <Scene key={index} progress={scrollYProgress} at={scene.at}>{scene.copy}</Scene>)}
+        {scenes.map((scene, index) => <Scene key={index} progress={scrollYProgress} at={scene.at} opening={index === 0}>{scene.copy}</Scene>)}
         <button className="sound-toggle" type="button" onClick={toggleSound} aria-label={soundOn ? "Mute film audio" : "Play film audio"}>
           {soundOn ? <Volume2 size={15} /> : <VolumeX size={15} />}<span>{soundOn ? "SOUND ON" : "PLAY SOUND"}</span>
         </button>

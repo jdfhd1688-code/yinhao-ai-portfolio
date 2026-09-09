@@ -1,9 +1,10 @@
 "use client";
 
 import Image from "next/image";
-import { MotionValue, motion, useReducedMotion, useScroll, useTransform } from "framer-motion";
+import { MotionValue, motion, useReducedMotion, useTransform } from "framer-motion";
 import { ArrowUpRight } from "lucide-react";
 import { useRef } from "react";
+import { useSectionProgress } from "@/hooks/use-section-progress";
 
 const beats = ["I haven't reached\nthe summit yet.", "I'm still\non the way.", "Maybe our paths\ncross here."];
 
@@ -17,7 +18,7 @@ function FinaleBeat({ beat, index, progress, reduced }: { beat: string; index: n
 export function ContactFinale() {
   const ref = useRef<HTMLElement>(null);
   const reduced = useReducedMotion();
-  const { scrollYProgress } = useScroll({ target: ref, offset: ["start start", "end end"] });
+  const scrollYProgress = useSectionProgress(ref);
   const ctaOpacity = useTransform(scrollYProgress, [0.68, 0.8], [0, 1]);
   const ctaY = useTransform(scrollYProgress, [0.68, 0.8], [30, 0]);
   return (

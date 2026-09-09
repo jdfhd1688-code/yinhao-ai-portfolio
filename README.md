@@ -33,24 +33,50 @@ All production media lives in `public/media/`.
 | `public/media/legal-agent/cover-generated.png` | Legal Agent project cover | Clean generated interim art; replace after the real project link is supplied |
 | `public/media/storytelling/cover-generated.png` | AI Storytelling project cover | Clean generated interim art; replace after the real project link is supplied |
 
-## Phase 2 real-media handoff
+## Phase 4 — real project integration checklist
 
-The case-study layouts never invent product evidence. The following paths are rendered as clearly labelled placeholders until verified source files are supplied:
+Phase 3 deliberately shows honest, editorial placeholders wherever verified project evidence does not yet exist. `ProjectMediaSlot` checks each expected public path at build time: add a real file at the matching path and the placeholder automatically becomes the real image or video on the next build.
+
+### 有我在 / YOUWOZAI
 
 - `public/media/youwozai/chat.png`
 - `public/media/youwozai/emotion-record.png`
 - `public/media/youwozai/weekly-letter.png`
 - `public/media/youwozai/guardian-circle.png`
+- `public/media/youwozai/safety-workflow.png`
+- `public/media/youwozai/demo.mp4`
+- Needed: verified project URL and, only if public, repository URL.
+
+### Enterprise Legal AI Agent
+
 - `public/media/legal-agent/contract-upload.png`
-- `public/media/legal-agent/risk-report.png`
-- `public/media/legal-agent/workflow.png`
+- `public/media/legal-agent/risk-review.png`
+- `public/media/legal-agent/legal-basis.png`
+- `public/media/legal-agent/revision-suggestion.png`
+- `public/media/legal-agent/report.png`
+- `public/media/legal-agent/architecture.svg`
+- `public/media/legal-agent/demo.mp4`
+- Needed: verified demo URL, system documentation, and repository URL only if it is public.
+
+### AI Storytelling
+
 - `public/media/storytelling/poster-01.jpg`
+- `public/media/storytelling/character-01.jpg`
 - `public/media/storytelling/storyboard-01.jpg`
-- `public/media/storytelling/film-01.mp4`
+- `public/media/storytelling/frame-01.jpg`
+- `public/media/storytelling/frame-02.jpg`
+- `public/media/storytelling/preview-01.mp4`
+- `public/media/storytelling/final-film-01.mp4`
+- Needed: published film/preview URL and credits once the work is ready.
 
-The Email, GitHub, Resume, and LinkedIn labels in the finale remain intentionally inactive until verified URLs are provided. No placeholder `href="#"` values are shipped.
+### Contact links
 
-To replace an asset, keep the same filename and aspect ratio where possible. The project content is stored in `data/projects.ts`; add future case studies there and create their media folder under `public/media/`.
+- Verified email address
+- GitHub profile URL
+- LinkedIn profile URL
+- Resume PDF at `public/yinhao-resume.pdf`, if it should be public
+
+Until those are supplied, the site does not invent live demos, metrics, results, testimonials, repositories, social profiles, or finished films. The contact labels remain intentionally inactive; no placeholder `href="#"` links are shipped.
 
 ## Routes
 

@@ -5,6 +5,7 @@ import Link from "next/link";
 import { ArrowUpRight } from "lucide-react";
 import { motion, useReducedMotion } from "framer-motion";
 import { projects } from "@/data/projects";
+import { ProjectStatus } from "@/components/ProjectStatus";
 
 export function ProjectShowcase() {
   const reduced = useReducedMotion();
@@ -16,10 +17,11 @@ export function ProjectShowcase() {
           <div className="showcase-project__number"><span>{project.number}</span><i /></div>
           <div className="showcase-project__copy">
             <p>{project.category}<br />{project.year}</p><h3>{project.title}</h3><blockquote>{project.statement}</blockquote>
-            <Link href={`/work/${project.id}`}>View case study <ArrowUpRight size={18} /></Link>
+            <ProjectStatus status={project.status} />
+            <Link href={project.ctaHref}>{project.ctaLabel} <ArrowUpRight size={18} /></Link>
           </div>
-          <Link className="showcase-project__media" href={`/work/${project.id}`} aria-label={`View ${project.title} case study`}>
-            <Image src={project.hero} alt={`${project.title} visual`} fill sizes="(max-width: 800px) 100vw, 62vw" /><span>EXPLORE ↗</span>
+          <Link className="showcase-project__media" href={project.ctaHref} aria-label={`${project.ctaLabel}: ${project.title}`}>
+            <Image src={project.hero} alt={`${project.title} concept visual`} fill sizes="(max-width: 800px) 100vw, 62vw" /><span>IN PROGRESS ↗</span>
           </Link>
         </motion.article>
       ))}

@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { useEffect } from "react";
+import Image from "next/image";
 import { ArrowLeft, ArrowUpRight } from "lucide-react";
 import { Navigation } from "@/components/navigation";
 import { ProjectStatus } from "@/components/ProjectStatus";
@@ -18,6 +19,7 @@ export function FelicityCase() {
     <section className="numbered-section felicity-role"><span>02 / {zh ? "我的职责" : "MY ROLE"}</span><div>{role.map((item, index) => <p key={item}><b>0{index + 1}</b>{item}</p>)}</div></section>
     <section className="numbered-section zero-to-live"><span>03 / {zh ? "从零到上线" : "FROM ZERO TO LIVE"}</span><ol>{(zh ? ["梳理页面与业务信息", "整理产品内容与资料", "准备图片、视频和价格资料", "完成网站页面搭建", "协调并推进正式上线"] : ["Organize pages and business information", "Prepare product content", "Coordinate image, video and price materials", "Build the website", "Move the work through launch"]).map((item, index) => <li key={item}><b>{String(index + 1).padStart(2, "0")}</b><span>{item}</span></li>)}</ol></section>
     <section className="numbered-section live-website"><span>04 / {zh ? "真实官网" : "LIVE WEBSITE"}</span><h2>Felicity Solar<br />South Africa</h2><a href="https://www.felicitysolarsa.co.za/" target="_blank" rel="noopener noreferrer">{zh ? "访问官网" : "VISIT LIVE SITE"} <ArrowUpRight /></a></section>
-    <section className="numbered-section felicity-learning"><span>05 / {zh ? "我学到的" : "WHAT I LEARNED"}</span><blockquote>{zh ? "把页面、产品内容、媒体和协作组织好，本身就是让一个商业项目真正落地的一部分。" : "Organizing pages, product content, media and coordination is part of what makes a commercial project real."}</blockquote><small>{zh ? "本案例不声明未经提供的 SEO、流量、转化、销售增长或用户研究成果。" : "This case study makes no unsupported claims about SEO, traffic, conversion, sales growth or user research."}</small></section>
+    <section className="numbered-section felicity-evidence"><span>05 / {zh ? "真实官网截图" : "LIVE WEBSITE SCREEN"}</span><div className="evidence-screens"><figure><div className="evidence-screen__media"><Image src="/media/felicity/home.png" alt={zh ? "Felicity Solar South Africa 官网首页" : "Felicity Solar South Africa website homepage"} fill sizes="100vw" /></div><figcaption><strong>{zh ? "Felicity Solar South Africa 官网" : "Felicity Solar South Africa Website"}</strong><p>{zh ? "真实上线商业官网首页。" : "Live commercial website homepage."}</p></figcaption></figure></div></section>
+    <section className="numbered-section felicity-learning"><span>06 / {zh ? "我学到的" : "WHAT I LEARNED"}</span><blockquote>{zh ? "把页面、产品内容、媒体和协作组织好，本身就是让一个商业项目真正落地的一部分。" : "Organizing pages, product content, media and coordination is part of what makes a commercial project real."}</blockquote><small>{zh ? "本案例不声明未经提供的 SEO、流量、转化、销售增长或用户研究成果。" : "This case study makes no unsupported claims about SEO, traffic, conversion, sales growth or user research."}</small></section>
   </main>;
 }

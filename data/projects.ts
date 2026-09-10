@@ -12,7 +12,7 @@ export type PlannedAsset = {
 };
 
 export type Project = {
-  id: string; number: string; year: string; group: "featured" | "released"; status: ProjectStatusValue;
+  id: string; number: string; order: number; year: string; group: "featured" | "released"; status: ProjectStatusValue;
   title: LocalizedText; subtitle: LocalizedText; category: LocalizedText; hero: string; statement: LocalizedText;
   description: LocalizedText; problem: LocalizedText; insight: LocalizedText; solution: LocalizedText;
   process: { zh: string[]; en: string[] }; workflow: { zh: string[]; en: string[] }; directions: { zh: string[]; en: string[] };
@@ -20,12 +20,13 @@ export type Project = {
   ctaLabel: LocalizedText; ctaHref: string;
   statusLabel?: LocalizedText;
   cardTag?: LocalizedText;
+  evidenceScreens?: { src: string; title: LocalizedText; caption: LocalizedText }[];
   externalLinks?: { label: LocalizedText; href: string }[];
 };
 
 export const projects: Project[] = [
   {
-    id: "youwozai", number: "01", year: "2026", group: "featured", status: "IN_PROGRESS",
+    id: "youwozai", number: "02", order: 2, year: "2026", group: "featured", status: "IN_PROGRESS",
     title: { zh: "有我在", en: "YOUWOZAI" }, subtitle: { zh: "YOUWOZAI · AI 陪伴产品", en: "AI Companion" },
     category: { zh: "AI 产品 / 人的连接", en: "AI Product / Human Connection" }, hero: "/media/youwozai/cover-generated.png",
     statement: { zh: "如果 AI 记住的不只是你说过什么，也包括你当时的感受。", en: "What if AI could remember how you felt, not just what you said?" },
@@ -45,6 +46,9 @@ export const projects: Project[] = [
       { path: "/media/youwozai/safety-workflow.png", title: "Safety Workflow", subtitle: "The documented high-risk response path.", mediaType: "Workflow", aspectRatio: "16/9", status: "IN_PROGRESS" },
     ], availableAssets: ["/media/youwozai/cover-generated.png", "/media/youwozai/cover.jpg"],
     statusLabel: { zh: "可运行 MVP · 持续完善中", en: "Runnable MVP · In Progress" },
+    evidenceScreens: [
+      { src: "/media/youwozai/demo-home.png", title: { zh: "和小在聊聊 · 情绪记录", en: "Companion Chat & Mood Record" }, caption: { zh: "从自由聊天进入可持续记录的情绪上下文。", en: "From open chat into a continuous emotional context." } },
+    ],
     externalLinks: [
       { label: { zh: "查看 Demo", en: "View Demo" }, href: "https://youwozai-demo.jdfhd1688.chatgpt.site" },
       { label: { zh: "GitHub", en: "GitHub" }, href: "https://github.com/jdfhd1688-code/youwozai-ai-companion" },
@@ -52,7 +56,7 @@ export const projects: Project[] = [
     ctaLabel: { zh: "查看项目", en: "View Project" }, ctaHref: "/work/youwozai",
   },
   {
-    id: "legal-ai-agent", number: "02", year: "2026", group: "featured", status: "IN_PROGRESS",
+    id: "legal-ai-agent", number: "01", order: 1, year: "2026", group: "featured", status: "IN_PROGRESS",
     title: { zh: "企业法务合规助手", en: "Enterprise Legal AI Agent" }, subtitle: { zh: "把法律工作重新设计成系统", en: "Legal work, redesigned as a system" },
     category: { zh: "AI 解决方案 / Agent / RAG", en: "AI Solution / Agent / RAG" }, hero: "/media/legal-agent/cover-generated.png",
     statement: { zh: "如果法律工作不再是一堆文件，而是一套可追踪的流程。", en: "What if legal work became a system, instead of a pile of documents?" },
@@ -72,6 +76,9 @@ export const projects: Project[] = [
       { path: "/media/legal-agent/architecture.svg", title: "Architecture", subtitle: "The current system direction.", mediaType: "Architecture", aspectRatio: "16/9", status: "IN_PROGRESS" },
     ], availableAssets: ["/media/legal-agent/cover-generated.png", "/media/legal-agent/cover.jpg"],
     statusLabel: { zh: "当前原型 · 持续完善中", en: "Current Prototype · In Progress" },
+    evidenceScreens: [
+      { src: "/media/legal-agent/prototype-home.png", title: { zh: "合同审查原型界面", en: "Contract Review Prototype" }, caption: { zh: "对应 Workflow：上传、解析、检索与风险分级。", en: "Maps to upload, parsing, retrieval and risk grading." } },
+    ],
     externalLinks: [
       { label: { zh: "查看当前原型", en: "View Current Prototype" }, href: "https://enterprise-legal-ai-agent.onrender.com/" },
       { label: { zh: "GitHub", en: "GitHub" }, href: "https://github.com/jdfhd1688-code/enterprise-legal-ai-agent" },
@@ -79,7 +86,7 @@ export const projects: Project[] = [
     ctaLabel: { zh: "查看项目", en: "View Project" }, ctaHref: "/work/legal-ai-agent",
   },
   {
-    id: "legal-workflow-case-study", number: "03", year: "2026", group: "featured", status: "RELEASED",
+    id: "legal-workflow-case-study", number: "03", order: 3, year: "2026", group: "featured", status: "RELEASED",
     title: { zh: "AI法律文书协作与案件管理", en: "AI Legal Document & Case Management" }, subtitle: { zh: "真实律所场景下的 Workflow 与 Human-in-the-loop 实践", en: "Real law-firm workflow and human-in-the-loop practice" },
     category: { zh: "Legal AI / Workflow / AI Solution", en: "Legal AI / Workflow / AI Solution" }, hero: "/media/legal-agent/cover-generated.png",
     statement: { zh: "在多案件并行、高频沟通与高专业要求的环境中，把案件推进、法律文书与客户反馈沉淀为可追踪、可复核、可交接的标准化流程。", en: "Turning multi-case work, high-frequency communication and professional legal writing into a traceable, reviewable and transferable workflow." },
@@ -101,7 +108,7 @@ export const projects: Project[] = [
     ctaLabel: { zh: "查看案例", en: "View Case Study" }, ctaHref: "/work/legal-workflow-case-study",
   },
   {
-    id: "ai-tool-research-2026", number: "04", year: "2026", group: "featured", status: "RELEASED",
+    id: "ai-tool-research-2026", number: "04", order: 4, year: "2026", group: "featured", status: "RELEASED",
     title: { zh: "AI短剧 / AI剧本工具市场测评", en: "AI Short Drama & Script Tool Research" }, subtitle: { zh: "从模型能力比较到多模型编剧 Workflow", en: "From model comparison to multi-model screenwriting workflow" },
     category: { zh: "AI Research / Tool Evaluation / Workflow", en: "AI Research / Tool Evaluation / Workflow" }, hero: "/media/storytelling/cover.png",
     statement: { zh: "横向研究国内外主流 AI 编剧工具，梳理模型能力边界、工具选型、多模型协同流程与 100 分评测框架。", en: "A horizontal study of mainstream AI screenwriting tools, mapping model limits, tool selection, multi-model workflows and a 100-point evaluation framework." },
@@ -123,7 +130,7 @@ export const projects: Project[] = [
     ctaLabel: { zh: "查看报告", en: "View Report" }, ctaHref: "/work/ai-tool-research-2026",
   },
   {
-    id: "short-drama", number: "05", year: "2025 — 2026", group: "released", status: "RELEASED",
+    id: "short-drama", number: "05", order: 5, year: "2025 — 2026", group: "released", status: "RELEASED",
     title: { zh: "小说 IP 改编与短剧编剧", en: "IP Adaptation & Short Drama" }, subtitle: { zh: "从小说 IP 到正式发行短剧", en: "From Novel IP to Released Motion Comic" },
     category: { zh: "小说 IP 改编 / 短剧编剧", en: "IP Adaptation / Screenwriting" }, hero: "/media/storytelling/cover.png",
     statement: { zh: "把一个长篇故事，重新写成观众愿意继续点下一集的结构。", en: "Turning long-form IP into short-form episodic stories." },
@@ -140,7 +147,7 @@ export const projects: Project[] = [
     ctaLabel: { zh: "查看两部作品", en: "Explore the Works" }, ctaHref: "/work/short-drama",
   },
   {
-    id: "felicity-south-africa", number: "06", year: "LIVE", group: "released", status: "LIVE",
+    id: "felicity-south-africa", number: "06", order: 6, year: "LIVE", group: "released", status: "LIVE",
     title: { zh: "南非市场数字化落地", en: "South Africa Digital Launch" }, subtitle: { zh: "Felicity Solar 南非官网", en: "Felicity Solar South Africa" },
     category: { zh: "真实商业交付 / 南非市场", en: "Commercial Delivery / South Africa" }, hero: "/media/hero/hero-road.png",
     statement: { zh: "从南非本地业务需求，到一个真正上线的商业官网。", en: "From local market needs to a live commercial website." },
@@ -153,6 +160,10 @@ export const projects: Project[] = [
     reflection: { zh: "这次交付让我更具体地理解：把内容、资料与协作组织好，本身就是产品落地的一部分。", en: "This delivery made one thing concrete: organizing content, materials and coordination is part of shipping the product." },
     nextStep: { zh: "官网已上线并持续作为南非业务的真实线上入口。", en: "The website is live as a real digital presence for the South African business." },
     plannedAssets: [], availableAssets: [],
+    statusLabel: { zh: "已上线", en: "LIVE" },
+    evidenceScreens: [
+      { src: "/media/felicity/home.png", title: { zh: "Felicity Solar South Africa 官网", en: "Felicity Solar South Africa Website" }, caption: { zh: "真实上线商业官网首页。", en: "Live commercial website homepage." } },
+    ],
     ctaLabel: { zh: "查看项目", en: "View Project" }, ctaHref: "/work/felicity-south-africa",
   },
 ];

@@ -26,13 +26,13 @@ export function ScrollNarrative() {
     { at: [0, 0.001, 0.16, 0.24], copy: <h1>一段很长的路。</h1> },
     { at: [0.2, 0.3, 0.4, 0.49], copy: <h2>为了赶上明早<br /><em>山顶的日出。</em></h2> },
     { at: [0.42, 0.52, 0.62, 0.7], copy: <h2>我仍然<br />在路上。</h2> },
-    { at: [0.64, 0.73, 0.84, 0.91], copy: <div className="narrative__identity"><strong>YINHAO</strong><span>AI 产品<br />AI 智能体<br />叙事创作</span></div> },
+    { at: [0.64, 0.73, 0.84, 0.91], copy: <div className="narrative__identity"><strong>YINHAO</strong><span>AI 解决方案<br />AI 产品<br />Workflow 设计</span></div> },
     { at: [0.84, 0.91, 0.98, 1], copy: <h2>沿途，<br /><em>我做了一些东西。</em></h2> },
   ] : [
     { at: [0, 0.001, 0.16, 0.24], copy: <h1>A long road.</h1> },
     { at: [0.2, 0.3, 0.4, 0.49], copy: <h2>A sunrise<br /><em>somewhere ahead.</em></h2> },
     { at: [0.42, 0.52, 0.62, 0.7], copy: <h2>I&apos;m still<br />on the way.</h2> },
-    { at: [0.64, 0.73, 0.84, 0.91], copy: <div className="narrative__identity"><strong>YINHAO</strong><span>AI Products<br />AI Agents<br />AI Storytelling</span></div> },
+    { at: [0.64, 0.73, 0.84, 0.91], copy: <div className="narrative__identity"><strong>YINHAO</strong><span>AI Solution<br />AI Product<br />Workflow Design</span></div> },
     { at: [0.84, 0.91, 0.98, 1], copy: <h2>Along the way,<br /><em>I made a few things.</em></h2> },
   ];
   useViewportVideo(videoRef, !reduced);

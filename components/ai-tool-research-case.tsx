@@ -26,6 +26,10 @@ export function AiToolResearchCase() {
         <small className="demo-note">{zh ? "本报告基于公开产品能力、行业报道、第三方横评与创作者社区反馈进行研究，不等同于统一实验环境下的实验室 Benchmark。" : "This report is desktop research based on public capabilities, industry reports, third-party reviews and creator feedback. It is not a controlled laboratory benchmark."}</small>
       </header>
 
+      <section className="numbered-section research-lead">
+        <blockquote>{zh ? "没有一个模型适合从创意直接一键生成精品短剧。" : "No single model is suitable for producing a polished short drama from idea to final script in one pass."}</blockquote>
+        <p>{zh ? "更成熟的生产方式是：通用模型负责创意与推演，垂直工具负责结构与生产衔接，人工负责人物、情绪、节奏、合规与最终取舍。" : "A more mature workflow: general models handle ideation and reasoning, specialized tools handle structure and production handoff, and human creators own character, emotion, pacing, compliance and final judgment."}</p>
+      </section>
       <section className="numbered-section">
         <span>01 / {zh ? "核心研究问题" : "CORE RESEARCH QUESTIONS"}</span>
         <div className="research-questions">{aiToolResearch.coreQuestions.map((item, index) => <p key={item.zh}><b>0{index + 1}</b>{item[locale]}</p>)}</div>

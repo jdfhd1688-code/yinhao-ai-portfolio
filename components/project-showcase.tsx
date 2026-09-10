@@ -12,8 +12,9 @@ import { useLanguage } from "@/messages/locale";
 export function ProjectShowcase() {
   const { locale, t } = useLanguage();
   const reduced = useReducedMotion();
-  const featured = projects.filter((project) => project.group === "featured");
-  const released = projects.filter((project) => project.group === "released");
+  const ordered = [...projects].sort((a, b) => a.order - b.order);
+  const featured = ordered.filter((project) => project.group === "featured");
+  const released = ordered.filter((project) => project.group === "released");
   const renderProject = (project: (typeof projects)[number], index: number) => (
     <motion.article className={`showcase-project showcase-project--${index + 1}`} key={project.id} initial={reduced ? false : { opacity: 0, y: 60 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, amount: 0.2 }} transition={{ duration: 1, ease: [0.22, 1, 0.36, 1] }}>
       <div className="showcase-project__number"><span>{project.number}</span><i /></div>

@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import { ProjectMediaPlaceholder } from "@/components/ProjectMediaPlaceholder";
-import type { Project } from "@/data/projects";
+import { localize, type Project } from "@/data/projects";
 import { useLanguage } from "@/messages/locale";
 
 const safetySteps = ["User Message", "Risk Screening", "Risk Level", "Context Review", "Supportive Response", "Safety Guidance", "Structured Record"];
@@ -16,6 +16,19 @@ const legalLayers = [
 const filmSteps = ["Concept", "Script", "Storyboard", "Character Consistency", "Image Generation", "Video Generation", "Voice / Music", "Editing", "Film in Progress"];
 
 function AssetSlots({ project }: { project: Project }) {
+  const { locale } = useLanguage();
+  if (project.evidenceScreens?.length) {
+    return (
+      <div className="evidence-screens">
+        {project.evidenceScreens.map((screen) => (
+          <figure key={screen.src}>
+            <div className="evidence-screen__media"><Image src={screen.src} alt={localize(screen.title, locale)} fill sizes="(max-width: 800px) 100vw, 52vw" /></div>
+            <figcaption><strong>{localize(screen.title, locale)}</strong><p>{localize(screen.caption, locale)}</p></figcaption>
+          </figure>
+        ))}
+      </div>
+    );
+  }
   return <div className="planned-media-grid">{project.plannedAssets.map((asset) => <ProjectMediaPlaceholder key={asset.path} {...asset} />)}</div>;
 }
 

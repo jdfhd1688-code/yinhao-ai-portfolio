@@ -33,10 +33,17 @@ function SafetyWorkflow({ project }: { project: Project }) {
 
 function LegalArchitecture({ project }: { project: Project }) {
   const { locale } = useLanguage(); const zh = locale === "zh";
+  const layers = zh ? [
+    ["输入", "上传合同"],
+    ["解析", "文档解析", "条款抽取"],
+    ["知识", "RAG", "法律知识库", "合规规则"],
+    ["推理", "风险识别", "合规推理"],
+    ["输出", "风险等级", "法律依据", "修改建议", "结构化报告"],
+  ] : legalLayers;
   return (
     <section className="evidence evidence--legal" aria-labelledby="architecture-title">
       <div className="evidence__heading"><span>{zh ? "当前原型 · 已实现架构" : "CURRENT PROTOTYPE · IMPLEMENTED ARCHITECTURE"}</span><h2 id="architecture-title">{zh ? <>真正的问题，<br />不是文档总结。</> : <>The real problem wasn&apos;t<br />document summarization.</>}</h2><p>{zh ? "当前原型已把文档解析、混合检索、风险判断、引用校验、人工复核与报告连接成可运行工作流；它不是生产系统或正式法律意见。" : "The current prototype connects parsing, hybrid retrieval, risk reasoning, citation checks, human review and reporting in a runnable workflow. It is not a production system or legal advice."}</p></div>
-      <div className="architecture">{legalLayers.map(([label, ...items], index) => <div key={label}><span>{label}</span>{items.map((item) => <strong key={item}>{item}</strong>)}{index < legalLayers.length - 1 && <i aria-hidden="true">→</i>}</div>)}</div>
+      <div className="architecture">{layers.map(([label, ...items], index) => <div key={label}><span>{label}</span>{items.map((item) => <strong key={item}>{item}</strong>)}{index < layers.length - 1 && <i aria-hidden="true">→</i>}</div>)}</div>
       <AssetSlots project={project} />
     </section>
   );

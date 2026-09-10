@@ -3,6 +3,8 @@ import { notFound } from "next/navigation";
 import { ProjectCaseStudy } from "@/components/project-case-study";
 import { ShortDramaCase } from "@/components/short-drama-case";
 import { FelicityCase } from "@/components/felicity-case";
+import { LegalWorkflowCase } from "@/components/legal-workflow-case";
+import { AiToolResearchCase } from "@/components/ai-tool-research-case";
 import { getProject, projects } from "@/data/projects";
 
 export function generateStaticParams() { return [...projects.map(({ id }) => ({ slug: id })), { slug: "ai-storytelling" }]; }
@@ -20,6 +22,8 @@ export default async function ProjectPage({ params }: { params: Promise<{ slug: 
   if (!project) notFound();
   if (project.id === "short-drama") return <ShortDramaCase />;
   if (project.id === "felicity-south-africa") return <FelicityCase />;
+  if (project.id === "legal-workflow-case-study") return <LegalWorkflowCase />;
+  if (project.id === "ai-tool-research-2026") return <AiToolResearchCase />;
   const index = projects.findIndex(({ id }) => id === project.id);
   const next = projects[(index + 1) % projects.length];
   return <ProjectCaseStudy project={project} next={next} />;

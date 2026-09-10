@@ -16,3 +16,4 @@ public/hero.webm
 index.html
 vite.config.js
 legacy-vite/
+.netlify/

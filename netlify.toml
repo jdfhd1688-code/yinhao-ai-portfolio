@@ -1,0 +1,41 @@
+[build]
+  command = "npm run build"
+  publish = "out"
+
+[build.environment]
+  NODE_VERSION = "20"
+
+[[redirects]]
+  from = "/work/youwozai"
+  to = "/work/youwozai.html"
+  status = 200
+
+[[redirects]]
+  from = "/work/legal-ai-agent"
+  to = "/work/legal-ai-agent.html"
+  status = 200
+
+[[redirects]]
+  from = "/work/legal-workflow-case-study"
+  to = "/work/legal-workflow-case-study.html"
+  status = 200
+
+[[redirects]]
+  from = "/work/ai-tool-research-2026"
+  to = "/work/ai-tool-research-2026.html"
+  status = 200
+
+[[redirects]]
+  from = "/work/short-drama"
+  to = "/work/short-drama.html"
+  status = 200
+
+[[redirects]]
+  from = "/work/ai-storytelling"
+  to = "/work/short-drama.html"
+  status = 200
+
+[[redirects]]
+  from = "/work/felicity-south-africa"
+  to = "/work/felicity-south-africa.html"
+  status = 200

@@ -115,3 +115,5 @@ body{overflow-x:hidden}.journey-shell{position:relative;isolation:isolate}.journ
 
 .finale__links{display:flex;flex-wrap:wrap;align-items:center;gap:18px 28px;margin-top:9vh}.finale__links a{display:inline-flex;align-items:center;gap:10px;min-height:44px;padding-bottom:6px;border-bottom:1px solid rgba(255,255,255,.45);color:#f0f0eb;font-size:13px;letter-spacing:.06em}.finale__links a span{color:#aaa;font-size:10px;letter-spacing:.14em;text-transform:uppercase}.finale__links a b{font-weight:500}.finale__links a svg{color:var(--red)}
 @media(max-width:800px){.finale__links{gap:16px 22px;margin-top:7vh}.finale__links a{font-size:13px}}
+
+@media(max-width:800px){.road-path__progress{filter:none}.narrative__video{filter:none}}

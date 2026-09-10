@@ -18,6 +18,7 @@ export function ScrollNarrative() {
   const ref = useRef<HTMLElement>(null);
   const videoRef = useRef<HTMLVideoElement>(null);
   const [soundOn, setSoundOn] = useState(false);
+  const [media, setMedia] = useState({ isMobile: false, saveData: false, slow: false });
   const reduced = useReducedMotion();
   const scrollYProgress = useSectionProgress(ref);
   const scale = useTransform(scrollYProgress, [0, 1], [1.09, reduced ? 1.09 : 1]);
@@ -35,6 +36,11 @@ export function ScrollNarrative() {
     { at: [0.64, 0.73, 0.84, 0.91], copy: <div className="narrative__identity"><strong>YINHAO</strong><span>AI Solution<br />AI Product<br />Workflow Design</span></div> },
     { at: [0.84, 0.91, 0.98, 1], copy: <h2>Along the way,<br /><em>I made a few things.</em></h2> },
   ];
+  useEffect(() => {
+    const mq = window.matchMedia("(max-width: 800px)");
+    const conn = (navigator as Navigator & { connection?: { saveData?: boolean; effectiveType?: string } }).connection;
+    setMedia({ isMobile: mq.matches, saveData: !!conn?.saveData, slow: conn?.effectiveType === "slow-2g" || conn?.effectiveType === "2g" });
+  }, []);
   useViewportVideo(videoRef, !reduced);
 
   useEffect(() => {
@@ -45,9 +51,13 @@ export function ScrollNarrative() {
       video.currentTime = 0;
       return;
     }
+    if (media.saveData || media.slow) {
+      video.pause();
+      return;
+    }
     video.muted = true;
     void video.play().catch(() => undefined);
-  }, [reduced]);
+  }, [reduced, media.saveData, media.slow]);
 
   const toggleSound = async () => {
     const video = videoRef.current;
@@ -60,8 +70,8 @@ export function ScrollNarrative() {
   return (
     <section ref={ref} className="narrative" aria-label={locale === "zh" ? "仍在继续的旅程" : "A journey still in progress"}>
       <div className="narrative__sticky">
-        <motion.video ref={videoRef} className="narrative__video" style={{ scale, opacity: brightness }} autoPlay muted loop playsInline preload="auto" poster="/media/hero/hero-road.png">
-          <source src="/media/hero/hero-road.mp4" type="video/mp4" />
+        <motion.video ref={videoRef} className="narrative__video" style={{ scale, opacity: brightness }} autoPlay muted loop playsInline preload={media.isMobile ? "metadata" : "auto"} poster={media.isMobile ? "/media/hero/hero-poster.webp" : "/media/hero/hero-road.png"}>
+          <source src={media.isMobile ? "/media/hero/hero-mobile.mp4" : "/media/hero/hero-road.mp4"} type="video/mp4" />
         </motion.video>
         <div className="narrative__shade" />
         <p className="narrative__chapter">{locale === "zh" ? "一段个人旅程 · 2026" : "A PERSONAL JOURNEY · 2026"}</p>

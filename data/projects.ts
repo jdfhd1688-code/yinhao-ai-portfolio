@@ -19,6 +19,7 @@ export type Project = {
   reflection: LocalizedText; nextStep: LocalizedText; plannedAssets: PlannedAsset[]; availableAssets: string[];
   ctaLabel: LocalizedText; ctaHref: string;
   statusLabel?: LocalizedText;
+  cardTag?: LocalizedText;
   externalLinks?: { label: LocalizedText; href: string }[];
 };
 
@@ -93,6 +94,7 @@ export const projects: Project[] = [
     nextStep: { zh: "本案例仅用于展示个人流程设计、AI 协作、风险控制和知识沉淀方法，不构成法律意见。", en: "This case study only demonstrates workflow design, AI collaboration, risk control and knowledge capture. It is not legal advice." },
     plannedAssets: [], availableAssets: [],
     statusLabel: { zh: "真实案例 · 已完成", en: "Real Case Study" },
+    cardTag: { zh: "查看完整案例 ↗", en: "View Full Case Study ↗" },
     externalLinks: [
       { label: { zh: "查看完整 PDF", en: "View Full PDF" }, href: "/reports/legal-ai-workflow-case-study.pdf" },
     ],
@@ -114,6 +116,7 @@ export const projects: Project[] = [
     nextStep: { zh: "建议用同一题材、同一背景与同一输出要求对主要工具做横向测试，并记录 Prompt、版本、首轮结果、二轮修正与人工修改量。", en: "Next step is a controlled comparison using the same premise, background and output requirements, recording prompts, versions, first-round results, revisions and human editing load." },
     plannedAssets: [], availableAssets: [],
     statusLabel: { zh: "桌面研究 · 已完成", en: "Desktop Research" },
+    cardTag: { zh: "查看完整研究 ↗", en: "View Full Report ↗" },
     externalLinks: [
       { label: { zh: "查看完整报告 PDF", en: "View Full Report PDF" }, href: "/reports/ai-script-tool-research-2026.pdf" },
     ],

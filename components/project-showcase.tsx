@@ -24,7 +24,7 @@ export function ProjectShowcase() {
       </div>
       <Link className="showcase-project__media" href={project.ctaHref} aria-label={`${localize(project.ctaLabel, locale)}: ${localize(project.title, locale)}`}>
         {project.id === "short-drama" ? <div className="project-title-art project-title-art--drama"><small>64 EPISODES</small><strong>{locale === "zh" ? "现实反击" : "REAL-WORLD\nCONFLICT"}</strong><i>×</i><strong>{locale === "zh" ? "古装权谋" : "HISTORICAL\nINTRIGUE"}</strong><small>68 EPISODES</small></div> : project.id === "felicity-south-africa" ? <div className="project-title-art project-title-art--felicity"><small>ZERO → LIVE · ≈ 3 WEEKS</small><strong>FELICITY<br />SOLAR</strong><em>SOUTH AFRICA</em></div> : <Image src={project.hero} alt={localize(project.title, locale)} fill sizes="(max-width: 800px) 100vw, 62vw" />}
-        <span>{project.status === "LIVE" ? (locale === "zh" ? "已上线 ↗" : "LIVE ↗") : project.status === "RELEASED" ? (locale === "zh" ? "两部作品已发行 ↗" : "2 RELEASED WORKS ↗") : (locale === "zh" ? "完善中 ↗" : "IN PROGRESS ↗")}</span>
+        <span>{project.cardTag ? localize(project.cardTag, locale) : project.status === "LIVE" ? (locale === "zh" ? "已上线 ↗" : "LIVE ↗") : project.status === "RELEASED" ? (locale === "zh" ? "两部作品已发行 ↗" : "2 RELEASED WORKS ↗") : (locale === "zh" ? "完善中 ↗" : "IN PROGRESS ↗")}</span>
       </Link>
     </motion.article>
   );

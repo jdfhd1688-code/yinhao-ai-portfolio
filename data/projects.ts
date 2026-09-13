@@ -20,6 +20,8 @@ export type Project = {
   ctaLabel: LocalizedText; ctaHref: string;
   statusLabel?: LocalizedText;
   cardTag?: LocalizedText;
+  role?: { zh: string[]; en: string[] };
+  features?: { zh: string[]; en: string[] };
   evidenceScreens?: { src: string; title: LocalizedText; caption: LocalizedText }[];
   externalLinks?: { label: LocalizedText; href: string }[];
 };
@@ -37,6 +39,8 @@ export const projects: Project[] = [
     process: { zh: ["理解情境", "识别情绪需求", "记忆模型", "安全设计", "原型验证"], en: ["Context", "Emotional needs", "Memory model", "Safety design", "Prototype"] },
     workflow: { zh: ["用户消息", "意图与情绪", "记忆检索", "风险识别", "上下文组织", "生成回应", "情绪记录", "长期记忆"], en: ["User message", "Intent / emotion", "Memory retrieval", "Risk detection", "Context assembly", "LLM response", "Emotional record", "Long-term memory"] },
     directions: { zh: ["和小在聊聊", "情绪记录", "每周来信", "守护圈", "长期记忆", "高风险安全流程"], en: ["Conversation", "Emotion record", "Weekly letter", "Guardian circle", "Long-term memory", "High-risk safety workflow"] },
+    role: { zh: ["设计 AI 陪伴产品结构", "设计对话到情绪记录的 Workflow", "设计每周总结与长期记录机制", "设计 Safety Workflow 与守护圈", "完成可运行 MVP"], en: ["Designed the AI companion product structure", "Designed the conversation-to-emotion-record workflow", "Designed weekly reflection and longitudinal tracking", "Designed the safety workflow and guardian-circle mechanism", "Built a runnable MVP"] },
+    features: { zh: ["陪伴聊天", "情绪记录", "心情历史", "每周来信", "成长相册", "守护圈", "高风险 Safety Workflow"], en: ["Companion chat", "Emotion records", "Mood history", "Weekly letters", "Growth album", "Guardian circle", "High-risk safety workflow"] },
     reflection: { zh: "我正在学习，AI 陪伴最难的并不是让语言更像人，而是知道什么时候应该记住、什么时候应该克制，以及什么时候必须把人带回真实世界。", en: "The hardest part of AI companionship is not sounding human. It is knowing what to remember, when to hold back, and when to guide someone toward real-world support." },
     nextStep: { zh: "继续验证核心陪伴体验，改进记忆边界与安全细节；真实第三方通知等能力仍待后续接入。", en: "Keep validating the companion experience and improve memory and safety details; real third-party notification remains future work." },
     plannedAssets: [
@@ -67,6 +71,8 @@ export const projects: Project[] = [
     process: { zh: ["业务梳理", "条款分类", "知识库", "推理链", "报告设计"], en: ["Business mapping", "Clause taxonomy", "Knowledge base", "Reasoning chain", "Report design"] },
     workflow: { zh: ["上传合同", "文档解析", "条款抽取", "风险识别", "法律检索", "合规推理", "结构化报告"], en: ["Upload contract", "Document parsing", "Clause extraction", "Risk detection", "Legal retrieval", "Compliance reasoning", "Structured report"] },
     directions: { zh: ["风险条款", "风险等级", "法律依据", "修改建议", "结构化审查报告", "人工复核"], en: ["Risk clauses", "Risk level", "Legal basis", "Revision suggestion", "Structured report", "Human review"] },
+    role: { zh: ["拆解企业合同审查流程", "设计 RAG 法规检索链路", "设计风险分级与人工复核机制", "定义结构化报告输出", "完成可演示 Prototype"], en: ["Broke down the enterprise contract review workflow", "Designed the RAG-based legal retrieval flow", "Designed risk classification and human review logic", "Defined structured report output", "Built a demonstrable prototype"] },
+    features: { zh: ["合同上传", "法规检索", "风险分级", "依据不足提示", "人工复核", "结构化报告"], en: ["Contract upload", "Legal retrieval", "Risk classification", "Insufficient-evidence fallback", "Human review", "Structured report"] },
     reflection: { zh: "我正在学习如何把一个复杂业务问题，拆成每一步都可以解释、验证和改进的 AI 工作流。", en: "I am learning how to break a complex business problem into an AI workflow where every step can be explained, tested and improved." },
     nextStep: { zh: "继续提升检索与评测质量、完善规则配置，并验证更稳定的端到端审查体验。", en: "Improve retrieval and evaluation quality, refine rule configuration, and validate a more robust end-to-end review experience." },
     plannedAssets: [

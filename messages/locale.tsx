@@ -38,7 +38,7 @@ export function LanguageProvider({ children }: { children: React.ReactNode }) {
     if (!hydrated) return;
     document.documentElement.lang = locale === "zh" ? "zh-CN" : "en";
     if (window.location.pathname === "/") {
-      document.title = locale === "zh" ? "YINHAO — AI 产品、智能体与创作" : "YINHAO — AI Products, Agents & Stories";
+      document.title = "YINHAO — AI Solution / AI Product / Workflow Design";
     }
     localStorage.setItem(STORAGE_KEY, locale);
   }, [hydrated, locale]);

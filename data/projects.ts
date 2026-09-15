@@ -23,7 +23,7 @@ export type Project = {
   role?: { zh: string[]; en: string[] };
   features?: { zh: string[]; en: string[] };
   evidenceScreens?: { src: string; title: LocalizedText; caption: LocalizedText }[];
-  externalLinks?: { label: LocalizedText; href: string }[];
+  externalLinks?: { label: LocalizedText; href: string; unavailable?: boolean }[];
 };
 
 export const projects: Project[] = [
@@ -54,7 +54,7 @@ export const projects: Project[] = [
       { src: "/media/youwozai/demo-home.png", title: { zh: "和小在聊聊 · 情绪记录", en: "Companion Chat & Mood Record" }, caption: { zh: "从自由聊天进入可持续记录的情绪上下文。", en: "From open chat into a continuous emotional context." } },
     ],
     externalLinks: [
-      { label: { zh: "查看 Demo", en: "View Demo" }, href: "https://youwozai-demo.jdfhd1688.chatgpt.site" },
+      { label: { zh: "Demo 暂不可用", en: "Demo Temporarily Unavailable" }, href: "https://youwozai-demo.jdfhd1688.chatgpt.site", unavailable: true },
       { label: { zh: "GitHub", en: "GitHub" }, href: "https://github.com/jdfhd1688-code/youwozai-ai-companion" },
     ],
     ctaLabel: { zh: "查看项目", en: "View Project" }, ctaHref: "/work/youwozai",
@@ -107,7 +107,7 @@ export const projects: Project[] = [
     nextStep: { zh: "本案例仅用于展示个人流程设计、AI 协作、风险控制和知识沉淀方法，不构成法律意见。", en: "This case study only demonstrates workflow design, AI collaboration, risk control and knowledge capture. It is not legal advice." },
     plannedAssets: [], availableAssets: [],
     statusLabel: { zh: "真实案例 · 已完成", en: "Real Case Study" },
-    cardTag: { zh: "查看完整案例 ↗", en: "View Full Case Study ↗" },
+    cardTag: { zh: "查看案例 ↗", en: "View Case Study ↗" },
     externalLinks: [
       { label: { zh: "查看完整 PDF", en: "View Full PDF" }, href: "/reports/legal-ai-workflow-case-study.pdf" },
     ],
@@ -129,11 +129,11 @@ export const projects: Project[] = [
     nextStep: { zh: "建议用同一题材、同一背景与同一输出要求对主要工具做横向测试，并记录 Prompt、版本、首轮结果、二轮修正与人工修改量。", en: "Next step is a controlled comparison using the same premise, background and output requirements, recording prompts, versions, first-round results, revisions and human editing load." },
     plannedAssets: [], availableAssets: [],
     statusLabel: { zh: "桌面研究 · 已完成", en: "Desktop Research" },
-    cardTag: { zh: "查看完整研究 ↗", en: "View Full Report ↗" },
+    cardTag: { zh: "查看研究 ↗", en: "View Research ↗" },
     externalLinks: [
       { label: { zh: "查看完整报告 PDF", en: "View Full Report PDF" }, href: "/reports/ai-script-tool-research-2026.pdf" },
     ],
-    ctaLabel: { zh: "查看报告", en: "View Report" }, ctaHref: "/work/ai-tool-research-2026",
+    ctaLabel: { zh: "查看研究", en: "View Research" }, ctaHref: "/work/ai-tool-research-2026",
   },
   {
     id: "short-drama", number: "05", order: 5, year: "2025 — 2026", group: "released", status: "RELEASED",
@@ -150,7 +150,7 @@ export const projects: Project[] = [
     nextStep: { zh: "继续把开篇钩子、冲突密度、用户匹配和付费节点作为需要验证的问题。", en: "Keep testing opening hooks, conflict density, audience fit and paywall anticipation as questions rather than assumed answers." },
     plannedAssets: [], availableAssets: ["/media/storytelling/cover.png"],
     statusLabel: { zh: "两部作品已发行", en: "2 Released Works" },
-    ctaLabel: { zh: "查看两部作品", en: "Explore the Works" }, ctaHref: "/work/short-drama",
+    ctaLabel: { zh: "查看作品", en: "View Released Works" }, ctaHref: "/work/short-drama",
   },
   {
     id: "felicity-south-africa", number: "06", order: 6, year: "LIVE", group: "released", status: "LIVE",
@@ -169,6 +169,9 @@ export const projects: Project[] = [
     statusLabel: { zh: "已上线", en: "LIVE" },
     evidenceScreens: [
       { src: "/media/felicity/home.png", title: { zh: "Felicity Solar South Africa 官网", en: "Felicity Solar South Africa Website" }, caption: { zh: "真实上线商业官网首页。", en: "Live commercial website homepage." } },
+    ],
+    externalLinks: [
+      { label: { zh: "访问官网", en: "Visit Live Site" }, href: "https://www.felicitysolarsa.co.za/" },
     ],
     ctaLabel: { zh: "查看项目", en: "View Project" }, ctaHref: "/work/felicity-south-africa",
   },

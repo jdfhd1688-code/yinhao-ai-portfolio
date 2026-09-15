@@ -18,7 +18,7 @@ export function ShortDramaCase() {
     : ["IP analysis", "Audience positioning", "Character and relationship adaptation", "Episode design", "Hook and conflict design", "Short-form screenwriting"];
 
   return (
-    <main className="case case--snapshot">
+    <main className="case case--snapshot case--short-drama">
       <Navigation />
       <header className="snapshot-hero">
         <Link href="/#work" className="case__back"><ArrowLeft size={16} /> {zh ? "返回作品" : "All work"}</Link>

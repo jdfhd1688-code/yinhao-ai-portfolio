@@ -24,7 +24,7 @@ export function LegalWorkflowCase() {
   ];
 
   return (
-    <main className="case case--snapshot">
+    <main className="case case--snapshot case--legal-workflow-case-study">
       <Navigation />
       <header className="snapshot-hero">
         <Link href="/#work" className="case__back"><ArrowLeft size={16} /> {zh ? "返回作品" : "All work"}</Link>

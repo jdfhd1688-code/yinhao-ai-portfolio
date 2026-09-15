@@ -24,12 +24,12 @@ export function FelicityCase() {
     : ["Website", "Product content", "Images", "Video", "Pricing materials", "Launch coordination"];
 
   return (
-    <main className="case case--snapshot">
+    <main className="case case--snapshot case--felicity-south-africa">
       <Navigation />
       <header className="snapshot-hero">
         <Link href="/#work" className="case__back"><ArrowLeft size={16} /> {zh ? "返回作品" : "All work"}</Link>
         <div className="snapshot-hero__meta"><span>06</span><span>SOUTH AFRICA · LIVE</span><span>≈ 3 WEEKS</span></div>
-        <h1>South Africa Digital Launch</h1>
+        <h1>{zh ? "南非市场数字化落地" : "South Africa Digital Launch"}</h1>
         <p>{zh ? "从南非本地业务需求到真实上线商业官网的交付。" : "From local South African business needs to a live commercial website."}</p>
         <ProjectStatus status="LIVE" />
         <div className="case__external-links"><a href="https://www.felicitysolarsa.co.za/" target="_blank" rel="noopener noreferrer">{zh ? "访问官网" : "Visit Live Site"} <ArrowUpRight size={16} /></a></div>

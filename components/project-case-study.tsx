@@ -15,7 +15,7 @@ export function ProjectCaseStudy({ project, next }: { project: Project; next: Pr
   useEffect(() => { document.title = `${localize(project.title, locale)} — YINHAO`; }, [locale, project.title]);
 
   return (
-    <main className="case case--snapshot">
+    <main className={`case case--snapshot case--${project.id}`}>
       <Navigation />
       <header className="snapshot-hero">
         <Link href="/#work" className="case__back"><ArrowLeft size={16} /> {zh ? "返回作品" : "All work"}</Link>
@@ -23,7 +23,7 @@ export function ProjectCaseStudy({ project, next }: { project: Project; next: Pr
         <h1>{localize(project.title, locale)}</h1>
         <p>{localize(project.statement, locale)}</p>
         <ProjectStatus status={project.status} label={localize(project.statusLabel, locale)} />
-        {project.externalLinks && <div className="case__external-links">{project.externalLinks.map((item) => <a key={item.href} href={item.href} target="_blank" rel="noopener noreferrer">{localize(item.label, locale)} <ArrowUpRight size={16} /></a>)}</div>}
+        {project.externalLinks && <div className="case__external-links">{project.externalLinks.map((item) => item.unavailable ? <span className="unavailable-link" key={item.href} aria-disabled="true">{localize(item.label, locale)}</span> : <a key={item.href} href={item.href} target="_blank" rel="noopener noreferrer">{localize(item.label, locale)} <ArrowUpRight size={16} /></a>)}</div>}
         {project.id === "youwozai" && <small className="demo-note">{zh ? "公开 Demo 使用模拟数据，请勿输入真实隐私或敏感信息。" : "The public demo uses simulated data. Do not enter real private or sensitive information."}</small>}
         {project.id === "legal-ai-agent" && <small className="demo-note">{zh ? "当前原型不构成正式法律意见，也不替代律师或企业法务判断。" : "The current prototype is not legal advice and does not replace professional legal judgment."}</small>}
       </header>

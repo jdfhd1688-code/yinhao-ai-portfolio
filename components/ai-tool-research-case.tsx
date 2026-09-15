@@ -20,7 +20,7 @@ export function AiToolResearchCase() {
     : ["Desktop research", "Public product capabilities", "Industry reports", "Third-party comparisons", "Creator-community feedback"];
 
   return (
-    <main className="case case--snapshot">
+    <main className="case case--snapshot case--ai-tool-research-2026">
       <Navigation />
       <header className="snapshot-hero">
         <Link href="/#work" className="case__back"><ArrowLeft size={16} /> {zh ? "返回作品" : "All work"}</Link>

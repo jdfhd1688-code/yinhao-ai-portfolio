@@ -21,7 +21,7 @@ export function Navigation() {
       <Link href="/" className="nav__brand" aria-label="YINHAO home">YINHAO<span>.</span></Link>
       <nav className={`nav__links ${open ? "nav__links--open" : ""}`} aria-label={locale === "zh" ? "主要导航" : "Primary navigation"}>
         {t.nav.map((label, index) => {
-          const href = ["#work", "#thinking", "#about", "#contact"][index];
+          const href = ["#selected-work", "#thinking", "#about", "#contact"][index];
           return (
           <Link key={href} href={`/${href}`} onClick={() => setOpen(false)}>{label}</Link>
           );

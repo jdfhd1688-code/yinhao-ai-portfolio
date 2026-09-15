@@ -1,5 +1,6 @@
 import { Navigation } from "@/components/navigation";
 import { ScrollNarrative } from "@/components/scroll-narrative";
+import { SelectedWorkDirectory } from "@/components/selected-work-directory";
 import { RoadPath } from "@/components/road-path";
 import { ProjectShowcase } from "@/components/project-showcase";
 import { Thinking } from "@/components/home-sections";
@@ -12,6 +13,7 @@ export default function Home() {
       <Navigation />
       <RoadPath />
       <ScrollNarrative />
+      <SelectedWorkDirectory />
       <ProjectShowcase />
       <Thinking />
       <AboutReveal />

@@ -51,7 +51,7 @@ export const projects: Project[] = [
     ], availableAssets: ["/media/youwozai/cover-generated.png", "/media/youwozai/cover.jpg"],
     statusLabel: { zh: "可运行 MVP · 持续完善中", en: "Runnable MVP · In Progress" },
     evidenceScreens: [
-      { src: "/media/youwozai/demo-home.png", title: { zh: "和小在聊聊 · 情绪记录", en: "Companion Chat & Mood Record" }, caption: { zh: "从自由聊天进入可持续记录的情绪上下文。", en: "From open chat into a continuous emotional context." } },
+      { src: "/media/youwozai/demo-home.png", title: { zh: "产品首页 · 陪伴入口", en: "Product Home · Companion Entry" }, caption: { zh: "从首页进入陪伴对话、每周来信与守护圈。", en: "The home screen connects companion chat, weekly letters and the Guardian Circle." } },
     ],
     externalLinks: [
       { label: { zh: "Demo 暂不可用", en: "Demo Temporarily Unavailable" }, href: "https://youwozai-demo.jdfhd1688.chatgpt.site", unavailable: true },

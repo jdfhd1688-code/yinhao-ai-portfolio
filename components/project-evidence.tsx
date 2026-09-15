@@ -5,7 +5,6 @@ import { ProjectMediaPlaceholder } from "@/components/ProjectMediaPlaceholder";
 import { localize, type Project } from "@/data/projects";
 import { useLanguage } from "@/messages/locale";
 
-const safetySteps = ["User Message", "Risk Screening", "Risk Level", "Context Review", "Supportive Response", "Safety Guidance", "Structured Record"];
 const legalLayers = [
   ["INPUT", "Contract Upload"],
   ["PARSING", "Document Parsing", "Chunking"],
@@ -34,12 +33,21 @@ function AssetSlots({ project }: { project: Project }) {
 
 function SafetyWorkflow({ project }: { project: Project }) {
   const { locale } = useLanguage(); const zh = locale === "zh";
-  const steps = zh ? ["用户消息", "风险筛查", "风险等级", "语境复核", "支持性回应", "安全引导", "结构化记录"] : safetySteps;
+  const systems = zh ? [
+    ["连续性", "结构化情绪记录", "心情历史与查 / 改 / 删", "AI 记忆管理"],
+    ["反思与回顾", "每周来信", "情绪趋势", "成长相册"],
+    ["安全边界", "高风险识别", "逐人授权与守护圈", "站内模拟通知", "Audit 与撤销", "隐私设置"],
+  ] : [
+    ["Continuity", "Structured emotion records", "Mood history with edit / delete", "AI memory controls"],
+    ["Reflection", "Weekly letters", "Emotion trends", "Growth album"],
+    ["Safety", "High-risk detection", "Per-person authorization and Guardian Circle", "In-app simulated notifications", "Audit and revocation", "Privacy settings"],
+  ];
   return (
     <section className="evidence evidence--safety" aria-labelledby="safety-title">
-      <div className="evidence__heading"><span>{zh ? "已实现 · 高风险安全工作流" : "IMPLEMENTED · HIGH-RISK SAFETY WORKFLOW"}</span><h2 id="safety-title">{zh ? <>支持之外，<br />还要有安全边界。</> : <>Support with<br />a safety net.</>}</h2><p>{zh ? "当前 MVP 已实现高风险识别、支持性回应、模拟守护人通知与审计记录；真实第三方通知仍属于后续能力。" : "The MVP implements risk screening, supportive response, simulated guardian notification and audit records. Real third-party notification remains future work."}</p></div>
-      <ol className="safety-flow">{steps.map((step, index) => <li key={step}><b>{String(index + 1).padStart(2, "0")}</b><span>{step}</span>{index < steps.length - 1 && <i aria-hidden="true">↓</i>}</li>)}</ol>
       <AssetSlots project={project} />
+      <div className="evidence__heading"><span>{zh ? "当前 MVP · 已实现范围" : "CURRENT MVP · IMPLEMENTED SCOPE"}</span><h2 id="safety-title">{zh ? <>从对话，走向连续、<br />反思与安全边界。</> : <>From conversation to<br />continuity, reflection and safety.</>}</h2><p>{zh ? "这些能力不是独立功能清单，而是同一条陪伴 Workflow 中的三个相互连接的系统。" : "These are not isolated features. They are three connected systems within one companion workflow."}</p></div>
+      <div className="youwozai-evidence-grid">{systems.map(([title, ...items], index) => <section key={title}><b>{String(index + 1).padStart(2, "0")}</b><h3>{title}</h3><ul>{items.map((item) => <li key={item}>{item}</li>)}</ul></section>)}</div>
+      <p className="youwozai-supporting-note">{zh ? "语音与 fallback 能力保留为辅助功能，不作为当前产品核心证据。" : "Voice and fallback capabilities remain supporting features rather than core product evidence."}</p>
     </section>
   );
 }

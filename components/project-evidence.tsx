@@ -7,11 +7,11 @@ import { useLanguage } from "@/messages/locale";
 
 const safetySteps = ["User Message", "Risk Screening", "Risk Level", "Context Review", "Supportive Response", "Safety Guidance", "Structured Record"];
 const legalLayers = [
-  ["INPUT", "Upload Contract"],
-  ["PARSING", "Document Parsing", "Clause Extraction"],
-  ["KNOWLEDGE", "RAG", "Legal Knowledge Base", "Compliance Rules"],
-  ["REASONING", "Risk Detection", "Compliance Reasoning"],
-  ["OUTPUT", "Risk Level", "Legal Basis", "Revision Suggestion", "Structured Report"],
+  ["INPUT", "Contract Upload"],
+  ["PARSING", "Document Parsing", "Chunking"],
+  ["RETRIEVAL", "Contract Clauses", "Legal Sources"],
+  ["CONTROL", "Risk Assessment", "Human Review"],
+  ["OUTPUT", "Structured JSON", "Review Report"],
 ];
 const filmSteps = ["Concept", "Script", "Storyboard", "Character Consistency", "Image Generation", "Video Generation", "Voice / Music", "Editing", "Film in Progress"];
 
@@ -47,17 +47,17 @@ function SafetyWorkflow({ project }: { project: Project }) {
 function LegalArchitecture({ project }: { project: Project }) {
   const { locale } = useLanguage(); const zh = locale === "zh";
   const layers = zh ? [
-    ["输入", "上传合同"],
-    ["解析", "文档解析", "条款抽取"],
-    ["知识", "RAG", "法律知识库", "合规规则"],
-    ["推理", "风险识别", "合规推理"],
-    ["输出", "风险等级", "法律依据", "修改建议", "结构化报告"],
+    ["输入", "合同上传"],
+    ["解析", "材料解析", "文档切分"],
+    ["检索", "合同条款", "法律法规"],
+    ["控制", "风险判断", "人工复核"],
+    ["输出", "结构化 JSON", "审查报告"],
   ] : legalLayers;
   return (
     <section className="evidence evidence--legal" aria-labelledby="architecture-title">
-      <div className="evidence__heading"><span>{zh ? "当前原型 · 已实现架构" : "CURRENT PROTOTYPE · IMPLEMENTED ARCHITECTURE"}</span><h2 id="architecture-title">{zh ? <>真正的问题，<br />不是文档总结。</> : <>The real problem wasn&apos;t<br />document summarization.</>}</h2><p>{zh ? "当前原型已把文档解析、混合检索、风险判断、引用校验、人工复核与报告连接成可运行工作流；它不是生产系统或正式法律意见。" : "The current prototype connects parsing, hybrid retrieval, risk reasoning, citation checks, human review and reporting in a runnable workflow. It is not a production system or legal advice."}</p></div>
-      <div className="architecture">{layers.map(([label, ...items], index) => <div key={label}><span>{label}</span>{items.map((item) => <strong key={item}>{item}</strong>)}{index < layers.length - 1 && <i aria-hidden="true">→</i>}</div>)}</div>
       <AssetSlots project={project} />
+      <div className="evidence__heading"><span>{zh ? "系统证据 · 可验证边界" : "SYSTEM EVIDENCE · VERIFIABLE BOUNDARIES"}</span><h2 id="architecture-title">{zh ? <>限制模型自由度，<br />保留人工判断。</> : <>Constrain the model.<br />Keep human judgment.</>}</h2><p>{zh ? "重点不是让模型自由生成法律答案，而是通过双层 RAG、风险分级与人工复核，把模型限制在可验证的业务流程中。" : "The point is not to let the model freely generate legal answers, but to constrain it within a verifiable workflow through two-layer RAG, risk tiers and human review."}</p></div>
+      <div className="architecture">{layers.map(([label, ...items], index) => <div key={label}><span>{label}</span>{items.map((item) => <strong key={item}>{item}</strong>)}{index < layers.length - 1 && <i aria-hidden="true">→</i>}</div>)}</div>
     </section>
   );
 }

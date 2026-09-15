@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import Link from "next/link";
 import { useEffect } from "react";
 import { ArrowLeft, ArrowUpRight } from "lucide-react";
@@ -38,11 +39,22 @@ export function AiToolResearchCase() {
           <section className="snapshot-block"><span>{zh ? "核心结论" : "CORE CONCLUSION"}</span><p className="snapshot-lead">{zh ? "没有一个模型适合从创意直接一键生成精品短剧。" : "No single model is suitable for producing a polished short drama from idea to final script in one pass."}</p></section>
         </aside>
         <div className="snapshot-right">
-          <div className="snapshot-pdf">
-            <span>{zh ? "Tool Landscape · 多模型工具选型" : "Tool Landscape · Multi-model selection"}</span>
-            <strong>{zh ? "通用模型 → 垂直工具 → 人工终审" : "General models → specialized tools → human review"}</strong>
-            <p>{zh ? "完整工具矩阵、八步 Workflow 与 100 分评测框架见 PDF。" : "Full tool matrix, eight-step workflow and 100-point evaluation framework are in the PDF."}</p>
-            <a href="/reports/ai-script-tool-research-2026.pdf" target="_blank" rel="noopener noreferrer">{zh ? "查看完整报告" : "View Full Report"} <ArrowUpRight size={18} /></a>
+          <div className="snapshot-pdf snapshot-pdf--ai-research">
+            <div className="snapshot-pdf__media">
+              <Image
+                src="/media/ai-tool-research/ai-tool-research-hero.jpg"
+                alt={zh ? "AI 剧本工具研究与多模型工作流设计场景" : "AI script-tool research and multi-model workflow design workspace"}
+                fill
+                priority
+                sizes="(max-width: 800px) 100vw, 60vw"
+              />
+            </div>
+            <div className="snapshot-pdf__content">
+              <span>{zh ? "Tool Landscape · 多模型工具选型" : "Tool Landscape · Multi-model selection"}</span>
+              <strong>{zh ? "通用模型 → 垂直工具 → 人工终审" : "General models → specialized tools → human review"}</strong>
+              <p>{zh ? "完整工具矩阵、八步 Workflow 与 100 分评测框架见 PDF。" : "Full tool matrix, eight-step workflow and 100-point evaluation framework are in the PDF."}</p>
+              <a href="/reports/ai-script-tool-research-2026.pdf" target="_blank" rel="noopener noreferrer">{zh ? "查看完整报告" : "View Full Report"} <ArrowUpRight size={18} /></a>
+            </div>
           </div>
         </div>
       </div>

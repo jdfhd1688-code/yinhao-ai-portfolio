@@ -11,7 +11,7 @@ import { useLanguage } from "@/messages/locale";
 export function ShortDramaCase() {
   const { locale } = useLanguage();
   const zh = locale === "zh";
-  useEffect(() => { document.title = `${zh ? "小说 IP 改编与短剧编剧" : "IP Adaptation & Short Drama"} — YINHAO`; }, [zh]);
+  useEffect(() => { document.title = `${zh ? "小说 IP 改编与短剧编剧" : "IP Adaptation & Short Drama Screenwriting"} — YINHAO`; }, [zh]);
 
   const role = zh
     ? ["小说 IP 拆解", "受众定位", "人物与关系重构", "分集设计", "Hook / Conflict 设计", "短剧剧本创作"]
@@ -23,7 +23,7 @@ export function ShortDramaCase() {
       <header className="snapshot-hero">
         <Link href="/#work" className="case__back"><ArrowLeft size={16} /> {zh ? "返回作品" : "All work"}</Link>
         <div className="snapshot-hero__meta"><span>05</span><span>IP ADAPTATION / SHORT DRAMA</span><span>2 RELEASED WORKS</span></div>
-        <h1>{zh ? "小说 IP 改编与短剧编剧" : "IP Adaptation & Short Drama"}</h1>
+        <h1>{zh ? "小说 IP 改编与短剧编剧" : "IP Adaptation & Short Drama Screenwriting"}</h1>
         <p>{zh ? "两部小说 IP 的短剧改编与正式发行作品。" : "Two released short-drama adaptations developed from existing novel IP."}</p>
         <ProjectStatus status="RELEASED" label={zh ? "两部作品已发行" : "2 Released Works"} />
       </header>
@@ -39,7 +39,7 @@ export function ShortDramaCase() {
                 <p>{zh ? "备选名" : "Alternate title"} · {work.altTitle}</p>
                 {work.source && <p className="snapshot-source">{zh ? "原 IP" : "Source IP"} · {work.source[locale]}</p>}
                 <div className="snapshot-tags">{work.facts[locale].map((fact) => <span key={fact}>{fact}</span>)}</div>
-                <a href={work.fullWatchUrl} target="_blank" rel="noopener noreferrer">{zh ? "观看已发行作品" : "WATCH RELEASED WORK"} <ArrowUpRight size={16} /></a>
+                <a href={work.fullWatchUrl} target="_blank" rel="noopener noreferrer">{zh ? "查看发行作品" : "View Released Works"} <ArrowUpRight size={16} /></a>
               </div>
             ))}
           </section>

@@ -24,7 +24,8 @@ export default async function ProjectPage({ params }: { params: Promise<{ slug: 
   if (project.id === "felicity-south-africa") return <FelicityCase />;
   if (project.id === "legal-workflow-case-study") return <LegalWorkflowCase />;
   if (project.id === "ai-tool-research-2026") return <AiToolResearchCase />;
-  const index = projects.findIndex(({ id }) => id === project.id);
-  const next = projects[(index + 1) % projects.length];
+  const orderedProjects = [...projects].sort((a, b) => a.order - b.order);
+  const index = orderedProjects.findIndex(({ id }) => id === project.id);
+  const next = orderedProjects[(index + 1) % orderedProjects.length];
   return <ProjectCaseStudy project={project} next={next} />;
 }

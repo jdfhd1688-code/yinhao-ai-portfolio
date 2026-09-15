@@ -11,7 +11,7 @@ import { useLanguage } from "@/messages/locale";
 export function AiToolResearchCase() {
   const { locale } = useLanguage();
   const zh = locale === "zh";
-  useEffect(() => { document.title = `${zh ? "AI短剧 / AI剧本工具市场测评" : "AI Short Drama & Script Tool Research"} — YINHAO`; }, [zh]);
+  useEffect(() => { document.title = `${zh ? "AI 短剧 / AI 剧本工具市场测评" : "AI Short Drama / AI Script Tool Research"} — YINHAO`; }, [zh]);
 
   const role = zh
     ? ["横向研究国内外 AI 编剧工具", "比较通用模型、专业编剧工具与短剧 Agent", "梳理模型能力边界与适用角色", "设计多模型编剧 Workflow", "建立 100 分工具选型框架"]
@@ -26,10 +26,10 @@ export function AiToolResearchCase() {
       <header className="snapshot-hero">
         <Link href="/#work" className="case__back"><ArrowLeft size={16} /> {zh ? "返回作品" : "All work"}</Link>
         <div className="snapshot-hero__meta"><span>04</span><span>AI RESEARCH / TOOL EVALUATION</span><span>2026</span></div>
-        <h1>{zh ? "AI短剧 / AI剧本工具市场测评" : "AI Short Drama & Script Tool Research"}</h1>
+        <h1>{zh ? "AI 短剧 / AI 剧本工具市场测评" : "AI Short Drama / AI Script Tool Research"}</h1>
         <p>{zh ? "从模型能力比较到多模型编剧 Workflow 的 AI 工具选型研究。" : "A tool-selection study covering AI writing models, specialized tools and multi-model script workflows."}</p>
-        <ProjectStatus status="RELEASED" label={zh ? "Research Case Study" : "Research Case Study"} />
-        <div className="case__external-links"><a href="/reports/ai-script-tool-research-2026.pdf" target="_blank" rel="noopener noreferrer">{zh ? "查看完整报告" : "View Full Report"} <ArrowUpRight size={16} /></a></div>
+        <ProjectStatus status="RELEASED" label={zh ? "研究案例" : "Research Case Study"} />
+        <div className="case__external-links"><a href="/reports/ai-script-tool-research-2026.pdf" target="_blank" rel="noopener noreferrer">{zh ? "查看完整研究 PDF" : "View Full Research PDF"} <ArrowUpRight size={16} /></a></div>
       </header>
 
       <div className="snapshot-grid">
@@ -53,7 +53,7 @@ export function AiToolResearchCase() {
               <span>{zh ? "Tool Landscape · 多模型工具选型" : "Tool Landscape · Multi-model selection"}</span>
               <strong>{zh ? "通用模型 → 垂直工具 → 人工终审" : "General models → specialized tools → human review"}</strong>
               <p>{zh ? "完整工具矩阵、八步 Workflow 与 100 分评测框架见 PDF。" : "Full tool matrix, eight-step workflow and 100-point evaluation framework are in the PDF."}</p>
-              <a href="/reports/ai-script-tool-research-2026.pdf" target="_blank" rel="noopener noreferrer">{zh ? "查看完整报告" : "View Full Report"} <ArrowUpRight size={18} /></a>
+              <a href="/reports/ai-script-tool-research-2026.pdf" target="_blank" rel="noopener noreferrer">{zh ? "查看完整研究 PDF" : "View Full Research PDF"} <ArrowUpRight size={18} /></a>
             </div>
           </div>
         </div>

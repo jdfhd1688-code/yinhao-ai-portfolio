@@ -11,7 +11,7 @@ import { useLanguage } from "@/messages/locale";
 export function FelicityCase() {
   const { locale } = useLanguage();
   const zh = locale === "zh";
-  useEffect(() => { document.title = `${zh ? "South Africa Digital Launch" : "South Africa Digital Launch"} — YINHAO`; }, [zh]);
+  useEffect(() => { document.title = `${zh ? "南非市场数字化落地" : "South Africa Digital Launch"} — YINHAO`; }, [zh]);
 
   const role = zh
     ? ["参与官网从 0 到上线", "整理页面与产品信息", "整理图片、视频与价格资料", "推进网站上线", "支持南非本地业务展示"]
@@ -31,7 +31,7 @@ export function FelicityCase() {
         <div className="snapshot-hero__meta"><span>06</span><span>SOUTH AFRICA · LIVE</span><span>≈ 3 WEEKS</span></div>
         <h1>{zh ? "南非市场数字化落地" : "South Africa Digital Launch"}</h1>
         <p>{zh ? "从南非本地业务需求到真实上线商业官网的交付。" : "From local South African business needs to a live commercial website."}</p>
-        <ProjectStatus status="LIVE" />
+        <ProjectStatus status="LIVE" label={zh ? "已上线" : "LIVE"} />
         <div className="case__external-links"><a href="https://www.felicitysolarsa.co.za/" target="_blank" rel="noopener noreferrer">{zh ? "访问官网" : "Visit Live Site"} <ArrowUpRight size={16} /></a></div>
       </header>
 

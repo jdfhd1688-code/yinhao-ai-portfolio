@@ -13,8 +13,6 @@ const directoryCopy = {
       zh: "面向企业合同审查场景，设计从材料解析、法规检索、风险识别到人工复核的 AI Workflow。",
       en: "An AI workflow for enterprise contract review, from document parsing and legal retrieval to risk detection and human review.",
     },
-    status: { zh: "当前原型", en: "Current Prototype" },
-    cta: { zh: "查看项目", en: "View Project" },
   },
   youwozai: {
     group: "AI SOLUTION / PRODUCT",
@@ -23,8 +21,6 @@ const directoryCopy = {
       zh: "将陪伴聊天、情绪记录、每周总结和高风险守护连接成完整 AI 产品流程。",
       en: "A complete AI product flow connecting companion chat, emotion records, weekly reflection and high-risk safety support.",
     },
-    status: { zh: "可运行 MVP", en: "Runnable MVP" },
-    cta: { zh: "查看项目", en: "View Project" },
   },
   "legal-workflow-case-study": {
     group: "AI SOLUTION / PRODUCT",
@@ -33,8 +29,6 @@ const directoryCopy = {
       zh: "基于真实律所实践，将 30+ 案件管理、8 步 AI 文书 SOP 与人工复核沉淀为可复用 Workflow。",
       en: "A reusable workflow drawn from real legal practice: 30+ cases, an eight-step AI drafting SOP and human review.",
     },
-    status: { zh: "真实 Workflow Case Study", en: "Real Workflow Case Study" },
-    cta: { zh: "查看案例", en: "View Case Study" },
   },
   "ai-tool-research-2026": {
     group: "RESEARCH / REAL WORK",
@@ -43,8 +37,6 @@ const directoryCopy = {
       zh: "横向研究主流 AI 编剧工具，并设计多模型协同与 100 分评测框架。",
       en: "Research across major AI writing tools, with a multi-model workflow and a 100-point evaluation framework.",
     },
-    status: { zh: "Research Case Study", en: "Research Case Study" },
-    cta: { zh: "查看研究", en: "View Research" },
   },
   "short-drama": {
     group: "RESEARCH / REAL WORK",
@@ -53,8 +45,6 @@ const directoryCopy = {
       zh: "两部小说 IP 完成短剧改编并正式制作发行，覆盖女频都市与男频古装两种叙事引擎。",
       en: "Two novel IPs adapted, produced and released across urban female-oriented and historical male-oriented narrative engines.",
     },
-    status: { zh: "两部作品已发行", en: "2 Released Works" },
-    cta: { zh: "查看作品", en: "View Released Works" },
   },
   "felicity-south-africa": {
     group: "RESEARCH / REAL WORK",
@@ -63,8 +53,6 @@ const directoryCopy = {
       zh: "从南非本地业务需求出发，参与商业官网从 0 到上线的真实交付。",
       en: "A real commercial delivery from local South African business needs to a live website launch.",
     },
-    status: { zh: "LIVE", en: "LIVE" },
-    cta: { zh: "查看项目", en: "View Project" },
   },
 } as const;
 
@@ -94,9 +82,9 @@ export function SelectedWorkDirectory() {
                   <h4>{localize(project.title, locale)}</h4>
                   <p>{localize(copy.summary, locale)}</p>
                   <div className="directory-project__footer">
-                    <strong>{localize(copy.status, locale)}</strong>
+                    <strong>{localize(project.statusLabel, locale)}</strong>
                     <div>
-                      <Link href={project.ctaHref}>{localize(copy.cta, locale)} <ArrowUpRight size={14} /></Link>
+                      <Link href={project.ctaHref}>{localize(project.ctaLabel, locale)} <ArrowUpRight size={14} /></Link>
                       {project.id === "felicity-south-africa" && <a href="https://www.felicitysolarsa.co.za/" target="_blank" rel="noopener noreferrer">{locale === "zh" ? "访问官网" : "Visit Live Site"} <ArrowUpRight size={13} /></a>}
                     </div>
                   </div>

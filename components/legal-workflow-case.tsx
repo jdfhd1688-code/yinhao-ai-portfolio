@@ -11,7 +11,7 @@ import { useLanguage } from "@/messages/locale";
 export function LegalWorkflowCase() {
   const { locale } = useLanguage();
   const zh = locale === "zh";
-  useEffect(() => { document.title = `${zh ? "AI法律文书协作与案件管理" : "AI Legal Document Workflow & Case Management"} — YINHAO`; }, [zh]);
+  useEffect(() => { document.title = `${zh ? "AI 法律文书协作与案件管理" : "AI Legal Document Collaboration & Case Workflow"} — YINHAO`; }, [zh]);
 
   const role = zh
     ? ["管理 30+ 多类型案件并行推进", "将民事 / 刑事 / 行政流程沉淀为 SOP", "形成 8 步 AI 法律文书协作流程", "使用 2+ 模型进行并行生成与交叉比较", "建立法条核验、律师审核与客户确认闭环"]
@@ -29,10 +29,10 @@ export function LegalWorkflowCase() {
       <header className="snapshot-hero">
         <Link href="/#work" className="case__back"><ArrowLeft size={16} /> {zh ? "返回作品" : "All work"}</Link>
         <div className="snapshot-hero__meta"><span>03</span><span>LEGAL AI / WORKFLOW</span><span>2026</span></div>
-        <h1>{zh ? "AI法律文书协作与案件管理" : "AI Legal Document Workflow & Case Management"}</h1>
+        <h1>{zh ? "AI 法律文书协作与案件管理" : "AI Legal Document Collaboration & Case Workflow"}</h1>
         <p>{zh ? "真实律所场景下的 Workflow、Human-in-the-loop 与知识沉淀实践。" : "A real-world legal workflow case study combining case management, AI-assisted drafting and human review."}</p>
-        <ProjectStatus status="RELEASED" label={zh ? "真实 Workflow Case Study" : "Real Workflow Case Study"} />
-        <div className="case__external-links"><a href="/reports/legal-ai-workflow-case-study.pdf" target="_blank" rel="noopener noreferrer">{zh ? "查看完整 PDF" : "View Full PDF"} <ArrowUpRight size={16} /></a></div>
+        <ProjectStatus status="RELEASED" label={zh ? "真实 Workflow 案例" : "Real Workflow Case Study"} />
+        <div className="case__external-links"><a href="/reports/legal-ai-workflow-case-study.pdf" target="_blank" rel="noopener noreferrer">{zh ? "查看完整案例 PDF" : "View Full Case Study PDF"} <ArrowUpRight size={16} /></a></div>
       </header>
 
       <div className="snapshot-grid">
@@ -46,7 +46,7 @@ export function LegalWorkflowCase() {
             <span>{zh ? "8 步 AI 文书 SOP · Human-in-the-loop" : "8-step AI drafting SOP · Human-in-the-loop"}</span>
             <strong>{zh ? "AI 生成，人负责。" : "AI drafts. People decide."}</strong>
             <p>{zh ? "完整方法、法条核验与交付闭环见 PDF。" : "Full methodology, legal verification and delivery loop are in the PDF."}</p>
-            <a href="/reports/legal-ai-workflow-case-study.pdf" target="_blank" rel="noopener noreferrer">{zh ? "查看完整 PDF" : "View Full PDF"} <ArrowUpRight size={18} /></a>
+            <a href="/reports/legal-ai-workflow-case-study.pdf" target="_blank" rel="noopener noreferrer">{zh ? "查看完整案例 PDF" : "View Full Case Study PDF"} <ArrowUpRight size={18} /></a>
           </div>
         </div>
       </div>

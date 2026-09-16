@@ -39,7 +39,7 @@ export function AiToolResearchCase() {
           <div className="snapshot-pdf snapshot-pdf--ai-research">
             <div className="snapshot-pdf__media">
               <Image
-                src="/media/ai-tool-research/ai-tool-research-hero.jpg"
+                src="/media/ai-tool-research/ai-tool-research-hero-v2.jpg"
                 alt={zh ? "AI 剧本工具研究与多模型工作流设计场景" : "AI script-tool research and multi-model workflow design workspace"}
                 fill
                 priority

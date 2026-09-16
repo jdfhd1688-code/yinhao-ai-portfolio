@@ -10,6 +10,9 @@ dist/
 # Legacy Vite prototype retained locally for reference
 src/
 scripts/
+!scripts/
+scripts/*
+!scripts/generate_ai_research_pdf.py
 public/images/
 public/videos/
 public/hero.webm

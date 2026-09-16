@@ -19,6 +19,14 @@ npm run lint
 npm run build
 ```
 
+Regenerate the AI Research PDF with an embedded CJK font:
+
+```bash
+python scripts/generate_ai_research_pdf.py
+```
+
+The generator uses Windows Noto Sans SC by default. Set `PORTFOLIO_CJK_FONT` to another CJK TrueType font on other systems.
+
 ## Media map
 
 All production media lives in `public/media/`.
@@ -45,7 +53,7 @@ The site is Chinese-first with an in-place English switch. Language choice persi
 - `public/media/youwozai/guardian-circle.png`
 - `public/media/youwozai/safety-workflow.png`
 - `public/media/youwozai/demo.mp4`
-- Runnable simulated-data demo: `https://youwozai-demo.jdfhd1688.chatgpt.site`
+- Simulated-data demo: temporarily unavailable (the previous deployment URL is intentionally not linked on the portfolio)
 - Repository: `https://github.com/jdfhd1688-code/youwozai-ai-companion`
 
 ### Enterprise Legal AI Agent
@@ -82,7 +90,7 @@ The site is Chinese-first with an in-place English switch. Language choice persi
 - Verified email address
 - GitHub profile URL
 - LinkedIn profile URL
-- Resume PDF at `public/yinhao-resume.pdf`, if it should be public
+- Resume PDF at `public/resume/yinhao-resume.pdf`
 
 Until those are supplied, the site does not invent live demos, metrics, results, testimonials, repositories, social profiles, or finished films. The contact labels remain intentionally inactive; no placeholder `href="#"` links are shipped.
 

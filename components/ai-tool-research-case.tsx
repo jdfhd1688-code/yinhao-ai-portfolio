@@ -6,6 +6,7 @@ import { useEffect } from "react";
 import { ArrowLeft, ArrowUpRight } from "lucide-react";
 import { Navigation } from "@/components/navigation";
 import { ProjectStatus } from "@/components/ProjectStatus";
+import { aiToolResearch } from "@/data/aiToolResearch";
 import { useLanguage } from "@/messages/locale";
 
 export function AiToolResearchCase() {
@@ -13,12 +14,9 @@ export function AiToolResearchCase() {
   const zh = locale === "zh";
   useEffect(() => { document.title = `${zh ? "AI 短剧 / AI 剧本工具市场测评" : "AI Short Drama / AI Script Tool Research"} — YINHAO`; }, [zh]);
 
-  const role = zh
-    ? ["横向研究国内外 AI 编剧工具", "比较通用模型、专业编剧工具与短剧 Agent", "梳理模型能力边界与适用角色", "设计多模型编剧 Workflow", "建立 100 分工具选型框架"]
-    : ["Researched major AI writing tools across domestic and international markets", "Compared general models, professional writing tools and short-drama agents", "Mapped model strengths, limitations and recommended roles", "Designed a multi-model scriptwriting workflow", "Built a 100-point evaluation framework for tool selection"];
-  const method = zh
-    ? ["桌面研究", "公开产品能力", "行业报道", "第三方横评", "创作者社区反馈"]
-    : ["Desktop research", "Public product capabilities", "Industry reports", "Third-party comparisons", "Creator-community feedback"];
+  const findings = zh
+    ? ["不同模型的优势分布在不同创作阶段", "垂直工具更接近生产流程，但创意与人物质量仍需人工判断", "稳定方案不是寻找“最强模型”，而是设计合理 Workflow"]
+    : ["Different models are strongest at different creative stages", "Vertical tools sit closer to production, but creativity and character quality still require human judgment", "The stable answer is workflow design—not a search for one “best model”"];
 
   return (
     <main className="case case--snapshot case--ai-tool-research-2026">
@@ -27,16 +25,15 @@ export function AiToolResearchCase() {
         <Link href="/#work" className="case__back"><ArrowLeft size={16} /> {zh ? "返回作品" : "All work"}</Link>
         <div className="snapshot-hero__meta"><span>04</span><span>AI RESEARCH / TOOL EVALUATION</span><span>2026</span></div>
         <h1>{zh ? "AI 短剧 / AI 剧本工具市场测评" : "AI Short Drama / AI Script Tool Research"}</h1>
-        <p>{zh ? "从模型能力比较到多模型编剧 Workflow 的 AI 工具选型研究。" : "A tool-selection study covering AI writing models, specialized tools and multi-model script workflows."}</p>
+        <p>{zh ? "研究问题：单一模型能否从创意到成片，独立完成成熟短剧生产？" : "Research question: Can one model independently take a mature short drama from idea to production?"}</p>
         <ProjectStatus status="RELEASED" label={zh ? "研究案例" : "Research Case Study"} />
         <div className="case__external-links"><a href="/reports/ai-script-tool-research-2026.pdf" target="_blank" rel="noopener noreferrer">{zh ? "查看完整研究 PDF" : "View Full Research PDF"} <ArrowUpRight size={16} /></a></div>
       </header>
 
       <div className="snapshot-grid">
         <aside className="snapshot-left">
-          <section className="snapshot-block"><span>{zh ? "我做了什么" : "MY ROLE"}</span><ul>{role.map((item) => <li key={item}>{item}</li>)}</ul></section>
-          <section className="snapshot-block"><span>{zh ? "研究方法" : "RESEARCH METHOD"}</span><div className="snapshot-tags">{method.map((item) => <span key={item}>{item}</span>)}</div><p className="snapshot-note">{zh ? "这不是统一实验环境 Benchmark。" : "This is not a laboratory benchmark conducted under a unified test environment."}</p></section>
-          <section className="snapshot-block"><span>{zh ? "核心结论" : "CORE CONCLUSION"}</span><p className="snapshot-lead">{zh ? "没有一个模型适合从创意直接一键生成精品短剧。" : "No single model is suitable for producing a polished short drama from idea to final script in one pass."}</p></section>
+          <section className="snapshot-block research-findings"><span>{zh ? "三个关键发现" : "THREE KEY FINDINGS"}</span><ol>{findings.map((item, index) => <li key={item}><b>{String(index + 1).padStart(2, "0")}</b><p>{item}</p></li>)}</ol><p className="snapshot-note">{zh ? "结论来自桌面研究，不是统一实验条件下的 Benchmark。" : "Findings come from desktop research, not a controlled benchmark under unified test conditions."}</p></section>
+          <section className="snapshot-block"><span>{zh ? "推荐 8 步 Workflow" : "RECOMMENDED 8-STEP WORKFLOW"}</span><ol className="snapshot-flow">{aiToolResearch.workflow.map((step, index) => <li key={step.step}><b>{String(index + 1).padStart(2, "0")}</b><span>{step.title[locale]}</span></li>)}</ol></section>
         </aside>
         <div className="snapshot-right">
           <div className="snapshot-pdf snapshot-pdf--ai-research">
@@ -52,10 +49,15 @@ export function AiToolResearchCase() {
             <div className="snapshot-pdf__content">
               <span>{zh ? "Tool Landscape · 多模型工具选型" : "Tool Landscape · Multi-model selection"}</span>
               <strong>{zh ? "通用模型 → 垂直工具 → 人工终审" : "General models → specialized tools → human review"}</strong>
-              <p>{zh ? "完整工具矩阵、八步 Workflow 与 100 分评测框架见 PDF。" : "Full tool matrix, eight-step workflow and 100-point evaluation framework are in the PDF."}</p>
+              <p>{zh ? "没有单一模型适合每个阶段。完整工具矩阵与研究依据见 PDF。" : "No single model wins every stage. The complete tool matrix and research basis are documented in the PDF."}</p>
               <a href="/reports/ai-script-tool-research-2026.pdf" target="_blank" rel="noopener noreferrer">{zh ? "查看完整研究 PDF" : "View Full Research PDF"} <ArrowUpRight size={18} /></a>
             </div>
           </div>
+          <section className="research-framework">
+            <div><span>{zh ? "选型结构 · 非模型排名" : "SELECTION STRUCTURE · NOT A MODEL RANKING"}</span><strong>{zh ? "100 分评测框架" : "100-point evaluation framework"}</strong></div>
+            <dl>{aiToolResearch.scoring.map((criterion) => <div key={criterion.label.en}><dt>{criterion.label[locale]}</dt><dd>{criterion.weight}</dd></div>)}</dl>
+            <p>{zh ? "框架用于统一选型维度；网页不展示模型总分或星级排名。" : "The framework aligns selection criteria; the page does not present model totals or star rankings."}</p>
+          </section>
         </div>
       </div>
     </main>

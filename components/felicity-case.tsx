@@ -19,10 +19,6 @@ export function FelicityCase() {
   const flow = zh
     ? ["本地业务需求", "信息整理", "页面组织", "产品素材", "上线推进", "LIVE"]
     : ["Local business needs", "Information organization", "Page structure", "Product assets", "Launch coordination", "LIVE"];
-  const delivery = zh
-    ? ["官网", "产品内容", "图片", "视频", "价格资料", "上线协调"]
-    : ["Website", "Product content", "Images", "Video", "Pricing materials", "Launch coordination"];
-
   return (
     <main className="case case--snapshot case--felicity-south-africa">
       <Navigation />
@@ -39,7 +35,6 @@ export function FelicityCase() {
         <aside className="snapshot-left">
           <section className="snapshot-block"><span>{zh ? "我做了什么" : "MY ROLE"}</span><ul>{role.map((item) => <li key={item}>{item}</li>)}</ul></section>
           <section className="snapshot-block"><span>{zh ? "核心流程" : "CORE FLOW"}</span><ol className="snapshot-flow">{flow.map((step, i) => <li key={step}><b>{String(i + 1).padStart(2, "0")}</b><span>{step}</span></li>)}</ol></section>
-          <section className="snapshot-block"><span>{zh ? "交付内容" : "DELIVERY"}</span><div className="snapshot-tags">{delivery.map((item) => <span key={item}>{item}</span>)}</div></section>
         </aside>
         <div className="snapshot-right">
           <div className="evidence-screens">

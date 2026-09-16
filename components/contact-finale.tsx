@@ -24,7 +24,7 @@ export function ContactFinale() {
   return (
     <section id="contact" ref={ref} className="finale" aria-labelledby="contact-title">
       <div className="finale__sticky">
-        <div className="finale__image"><Image src="/media/hero/walking-road.png" alt={locale === "zh" ? "夜路上继续前行的人" : "A solitary figure continuing along a road at night"} fill sizes="100vw" /></div>
+        <div className="finale__image"><Image src="/media/hero/hero-road-optimized.jpg" alt={locale === "zh" ? "夜路上继续前行的人" : "A solitary figure continuing along a road at night"} fill sizes="100vw" /></div>
         <div className="finale__shade" /><span className="finale__label">{t.contactLabel}</span>
         {t.contactBeats.map((beat, index) => <FinaleBeat key={beat} beat={beat} index={index} progress={scrollYProgress} reduced={reduced} />)}
         <motion.div className="finale__cta" style={{ opacity: ctaOpacity, y: ctaY }}>

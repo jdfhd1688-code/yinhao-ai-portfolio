@@ -67,7 +67,7 @@ export function ScrollNarrative() {
   return (
     <section ref={ref} className="narrative" aria-label={locale === "zh" ? "仍在继续的旅程" : "A journey still in progress"}>
       <div className="narrative__sticky">
-        <motion.video ref={videoRef} className="narrative__video" style={{ scale, opacity: brightness }} autoPlay muted loop playsInline preload={media.isMobile ? "metadata" : "auto"} poster={media.isMobile ? "/media/hero/hero-poster.webp" : "/media/hero/hero-road.png"}>
+        <motion.video ref={videoRef} className="narrative__video" style={{ scale, opacity: brightness }} autoPlay muted loop playsInline preload={media.isMobile ? "metadata" : "auto"} poster={media.isMobile ? "/media/hero/hero-poster.webp" : "/media/hero/hero-road-optimized.jpg"}>
           <source src="/media/hero/hero-mobile.mp4" media="(max-width: 800px)" type="video/mp4" />
           <source src="/media/hero/hero-road.mp4" media="(min-width: 801px)" type="video/mp4" />
         </motion.video>

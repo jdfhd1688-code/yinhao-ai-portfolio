@@ -155,7 +155,7 @@ export const projects: Project[] = [
   {
     id: "felicity-south-africa", number: "06", order: 6, year: "LIVE", group: "released", status: "LIVE",
     title: { zh: "南非市场数字化落地", en: "South Africa Digital Launch" }, subtitle: { zh: "Felicity Solar 南非官网", en: "Felicity Solar South Africa" },
-    category: { zh: "真实商业交付 / 南非市场", en: "Commercial Delivery / South Africa" }, hero: "/media/hero/hero-road.png",
+    category: { zh: "真实商业交付 / 南非市场", en: "Commercial Delivery / South Africa" }, hero: "/media/hero/hero-road-optimized.jpg",
     statement: { zh: "从南非本地业务需求，到一个真正上线的商业官网。", en: "From local market needs to a live commercial website." },
     description: { zh: "在约三周内，参与完成 Felicity Solar South Africa 官网从零搭建到正式上线。", en: "A roughly three-week, zero-to-launch website delivery for Felicity Solar South Africa." },
     problem: { zh: "南非本地业务需要一个能够承载公司、产品与市场资料的正式线上入口。", en: "The South African business needed a live destination for company, product and market-facing information." },

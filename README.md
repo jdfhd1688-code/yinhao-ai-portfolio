@@ -82,7 +82,7 @@ The site is Chinese-first with an in-place English switch. Language choice persi
 
 ### Felicity Solar South Africa
 
-- Live website: `https://www.felicitysolarsa.co.za/`
+- Live website: `https://felicitysolar.co.za/`
 - The case states only the supplied responsibilities and makes no unsupported SEO, traffic, conversion, sales or research claims.
 
 ### Contact links
@@ -90,7 +90,6 @@ The site is Chinese-first with an in-place English switch. Language choice persi
 - Verified email address
 - GitHub profile URL
 - LinkedIn profile URL
-- Resume PDF at `public/resume/yinhao-resume.pdf`
 
 Until those are supplied, the site does not invent live demos, metrics, results, testimonials, repositories, social profiles, or finished films. The contact labels remain intentionally inactive; no placeholder `href="#"` links are shipped.
 

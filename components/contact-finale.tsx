@@ -32,7 +32,6 @@ export function ContactFinale() {
           <div className="finale__links" aria-label={locale === "zh" ? "联系方式" : "Contact links"}>
             <a href="mailto:1638750836@qq.com"><span>Email</span><b>1638750836@qq.com</b></a>
             <a href="https://github.com/jdfhd1688-code" target="_blank" rel="noopener noreferrer"><span>GitHub</span><b>jdfhd1688-code</b></a>
-            <a href="/resume/yinhao-resume.pdf" target="_blank" rel="noopener noreferrer"><span>{locale === "zh" ? "查看简历" : "View Resume"}</span><ArrowUpRight size={16} /></a>
           </div>
         </motion.div>
       </div>

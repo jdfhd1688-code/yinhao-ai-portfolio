@@ -44,7 +44,7 @@ export function ShortDramaCase() {
           </section>
           <div className="snapshot-pdf drama-comparison">
             <span>{zh ? "双作品对照" : "TWO WORKS IN CONTRAST"}</span>
-            <strong>{zh ? "同样是 IP 改编，<br />不同观众需要不同叙事引擎。" : "Same format.<br />Different audience.<br />Different narrative engine."}</strong>
+            <strong>{zh ? <>同样是 IP 改编，<br />不同观众需要不同叙事引擎。</> : <>Same format.<br />Different audience.<br />Different narrative engine.</>}</strong>
             <p>{zh ? "两部作品分别对应女频都市系统与男频古装权谋，真实红果发行链接可点击查看。" : "One urban female-oriented system story and one historical male-oriented intrigue, both with real released-work links."}</p>
             <small>{zh ? "移动端打开体验更佳" : "Best viewed on mobile"}</small>
           </div>

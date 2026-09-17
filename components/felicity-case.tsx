@@ -28,7 +28,7 @@ export function FelicityCase() {
         <h1>{zh ? "南非市场数字化落地" : "South Africa Digital Launch"}</h1>
         <p>{zh ? "从南非本地业务需求到真实上线商业官网的交付。" : "From local South African business needs to a live commercial website."}</p>
         <ProjectStatus status="LIVE" label={zh ? "已上线" : "LIVE"} />
-        <div className="case__external-links"><a href="https://www.felicitysolarsa.co.za/" target="_blank" rel="noopener noreferrer">{zh ? "访问官网" : "Visit Live Site"} <ArrowUpRight size={16} /></a></div>
+        <div className="case__external-links"><a href="https://felicitysolar.co.za/" target="_blank" rel="noopener noreferrer">{zh ? "访问官网" : "Visit Live Site"} <ArrowUpRight size={16} /></a></div>
       </header>
 
       <div className="snapshot-grid">

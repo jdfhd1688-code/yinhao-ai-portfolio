@@ -54,7 +54,7 @@ export const projects: Project[] = [
       { src: "/media/youwozai/demo-home.png", title: { zh: "产品首页 · 陪伴入口", en: "Product Home · Companion Entry" }, caption: { zh: "从首页进入陪伴对话、每周来信与守护圈。", en: "The home screen connects companion chat, weekly letters and the Guardian Circle." } },
     ],
     externalLinks: [
-      { label: { zh: "Demo 暂不可用", en: "Demo Temporarily Unavailable" }, href: "https://youwozai-demo.jdfhd1688.chatgpt.site", unavailable: true },
+      { label: { zh: "查看 Demo", en: "View Demo" }, href: "https://resplendent-granita-ad7080.netlify.app" },
       { label: { zh: "查看 GitHub", en: "View GitHub" }, href: "https://github.com/jdfhd1688-code/youwozai-ai-companion" },
     ],
     ctaLabel: { zh: "查看项目", en: "View Project" }, ctaHref: "/work/youwozai",
@@ -171,7 +171,7 @@ export const projects: Project[] = [
       { src: "/media/felicity/home.png", title: { zh: "Felicity Solar South Africa 官网", en: "Felicity Solar South Africa Website" }, caption: { zh: "真实上线商业官网首页。", en: "Live commercial website homepage." } },
     ],
     externalLinks: [
-      { label: { zh: "访问官网", en: "Visit Live Site" }, href: "https://www.felicitysolarsa.co.za/" },
+      { label: { zh: "访问官网", en: "Visit Live Site" }, href: "https://felicitysolar.co.za/" },
     ],
     ctaLabel: { zh: "查看项目", en: "View Project" }, ctaHref: "/work/felicity-south-africa",
   },

@@ -85,7 +85,7 @@ export function SelectedWorkDirectory() {
                     <strong>{localize(project.statusLabel, locale)}</strong>
                     <div>
                       <Link href={project.ctaHref}>{localize(project.ctaLabel, locale)} <ArrowUpRight size={14} /></Link>
-                      {project.id === "felicity-south-africa" && <a href="https://www.felicitysolarsa.co.za/" target="_blank" rel="noopener noreferrer">{locale === "zh" ? "访问官网" : "Visit Live Site"} <ArrowUpRight size={13} /></a>}
+                      {project.id === "felicity-south-africa" && <a href="https://felicitysolar.co.za/" target="_blank" rel="noopener noreferrer">{locale === "zh" ? "访问官网" : "Visit Live Site"} <ArrowUpRight size={13} /></a>}
                     </div>
                   </div>
                 </article>
